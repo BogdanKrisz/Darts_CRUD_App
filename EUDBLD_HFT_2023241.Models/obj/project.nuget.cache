@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NG8gQMT+aV3qE/mDUD73IcNcBU2QhwiDSITmfxTlnXEzRXAnopMzRxYpmNxRo8cwAAfT+YQOz/GAXhhJISQZ1w==",
+  "dgSpecHash": "D5REv8HLpy1ZlC0ar6b4u861cBCxIZhUNy0E0Bgfoa1/PcmyXcaCbbnS4cUEF2gPEw4Nw7YJEFclbtK+Sf/x2Q==",
   "success": true,
   "projectFilePath": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\bogda\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\bogda\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\bogda\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
