@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EUDBLD_HFT_2023241.Logic\EUDBLD_HFT_2023241.Logic.csproj" />
+    <ProjectReference Include="..\EUDBLD_HFT_2023241.Models\EUDBLD_HFT_2023241.Models.csproj" />
+    <ProjectReference Include="..\EUDBLD_HFT_2023241.Repository\EUDBLD_HFT_2023241.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
