@@ -12,6 +12,7 @@ namespace EUDBLD_HFT_2023241.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("id", TypeName = "int")]
         public int Id { get; set; }
 
         [NotMapped]

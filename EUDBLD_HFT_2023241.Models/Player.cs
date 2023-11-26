@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace EUDBLD_HFT_2023241.Models
 {
-    internal class Player
+    class Player
     {
+
+
     }
 }
