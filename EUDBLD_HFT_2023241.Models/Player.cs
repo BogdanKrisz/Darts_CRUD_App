@@ -14,5 +14,13 @@ namespace EUDBLD_HFT_2023241.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("player_id", TypeName = "int")]
         public int Id { get; set; }
+
+        [MaxLength(100)]
+        [Required]
+        public string Name { get; set; }
+
+        // Helyezés -> on the fly a logicból
+        [NotMapped]
+        public int RankInWorld => 1;
     }
 }
