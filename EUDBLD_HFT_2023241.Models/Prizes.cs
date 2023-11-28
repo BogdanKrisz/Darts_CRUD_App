@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace EUDBLD_HFT_2023241.Models
 {
-    [Table("playerChampionship")]
-    public class PlayerChampionship
+    [Table("prizes")]
+    public class Prizes
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -17,19 +17,17 @@ namespace EUDBLD_HFT_2023241.Models
         public int Id { get; set; }
 
         [NotMapped]
-        public virtual Player Player { get; set; }
-
-        [ForeignKey(nameof(Player))]
-        public int PlayerId { get; set; }
-
-        [NotMapped]
-        public virtual Championship Championship{ get; set; }
+        public virtual Championship Championship { get; set; }
 
         [ForeignKey(nameof(Championship))]
         public int ChampionshipId { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(3)]
         [Required]
-        public int Place { get; set; }
+        public int Place {  get; set; }
+
+        [MaxLength(100)]
+        [Required]
+        public int Price { get; set; }
     }
 }
