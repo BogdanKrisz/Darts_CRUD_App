@@ -49,5 +49,25 @@ namespace EUDBLD_HFT_2023241.Models
             MaxAttender = int.Parse(split[4]);
             PrizePool = int.Parse(split[5]);
         }
+
+        public override bool Equals(object obj)
+        {
+            Championship otherChampionship = obj as Championship;
+            if (otherChampionship == null) return false;
+
+            Championship thisChampionship = this;
+
+            return thisChampionship.Id == otherChampionship.Id &&
+                thisChampionship.Name == otherChampionship.Name &&
+                thisChampionship.StartDate == otherChampionship.StartDate &&
+                thisChampionship.EndDate == otherChampionship.EndDate &&
+                thisChampionship.MaxAttender == otherChampionship.MaxAttender &&
+                thisChampionship.PrizePool == otherChampionship.PrizePool;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Name, StartDate, EndDate, MaxAttender, PrizePool);
+        }
     }
 }

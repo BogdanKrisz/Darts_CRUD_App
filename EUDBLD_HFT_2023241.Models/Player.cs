@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,6 +39,22 @@ namespace EUDBLD_HFT_2023241.Models
             string[] split = line.Split('#');
             Id = int.Parse(split[0]);
             Name = split[1];
+        }
+
+        public override bool Equals(object obj)
+        {
+            Player otherPlayer = obj as Player;
+            if (otherPlayer == null) return false;
+
+            Player thisPlayer = this;
+
+            return thisPlayer.Id == otherPlayer.Id &&
+                thisPlayer.Name == otherPlayer.Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Name);
         }
     }
 }
