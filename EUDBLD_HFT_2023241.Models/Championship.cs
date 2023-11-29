@@ -21,8 +21,33 @@ namespace EUDBLD_HFT_2023241.Models
         public string Name { get; set; }
 
         [Required]
-        public DateTime Date { get; set; }
+        public DateTime StartDate { get; set; }
+
+        [Required]
+        public DateTime EndDate { get; set; }
+
+        public int MaxAttender;
+
+        [NotMapped]
+        public ICollection<Player> Attenders { get; set; }
 
         public int PrizePool { get; set; }
+
+        public Championship()
+        {
+            
+        }
+
+        // 1#GrandSlamOfDarts23#2023.11.12.#2023.11.20.#32#650,000
+        public Championship(string line)
+        {
+            string[] split = line.Split('#');
+            Id = int.Parse(split[0]);
+            Name = split[1];
+            StartDate = DateTime.Parse(split[2]);
+            EndDate = DateTime.Parse(split[3]);
+            MaxAttender = int.Parse(split[4]);
+            PrizePool = int.Parse(split[5]);
+        }
     }
 }

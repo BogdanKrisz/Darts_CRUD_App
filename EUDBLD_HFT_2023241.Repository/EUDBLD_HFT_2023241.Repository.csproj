@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -6,11 +6,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Darts.mdf" />
+    <None Remove="Darts_log.ldf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Darts.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Darts_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EUDBLD_HFT_2023241.Models\EUDBLD_HFT_2023241.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
