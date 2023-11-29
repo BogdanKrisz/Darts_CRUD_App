@@ -28,5 +28,20 @@ namespace EUDBLD_HFT_2023241.Models
 
         [Required]
         public int Price { get; set; }
+
+        public Prizes()
+        {
+            
+        }
+
+        // 1#2#1#120000
+        public Prizes(string line)
+        {
+            string[] split = line.Split('#');
+            Id = int.Parse(split[0]);
+            ChampionshipId = int.Parse(split[1]);
+            Place = int.Parse(split[2]);
+            Price = int.Parse(split[3]);
+        }
     }
 }
