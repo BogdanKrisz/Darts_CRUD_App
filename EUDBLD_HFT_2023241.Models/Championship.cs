@@ -11,15 +11,15 @@ namespace EUDBLD_HFT_2023241.Models
     [Table("championships")]
     public class Championship
     {
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("championship_id", TypeName = "int")]
         public int Id { get; set; }
 
-        [MaxLength(100)]
+        [StringLength(240)]
         [Required]
         public string Name { get; set; }
 
-        [MaxLength(100)]
         [Required]
         public DateTime Date { get; set; }
     }

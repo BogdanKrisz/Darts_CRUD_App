@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace EUDBLD_HFT_2023241.Models
 {
+    [Table("players")]
     public class Player
     {
         [Key]
@@ -15,7 +16,7 @@ namespace EUDBLD_HFT_2023241.Models
         [Column("player_id", TypeName = "int")]
         public int Id { get; set; }
 
-        [MaxLength(100)]
+        [StringLength(240)]
         [Required]
         public string Name { get; set; }
 

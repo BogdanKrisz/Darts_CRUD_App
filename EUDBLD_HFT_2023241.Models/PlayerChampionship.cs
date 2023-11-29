@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EUDBLD_HFT_2023241.Models
 {
-    [Table("playerChampionship")]
+    [Table("playersChampionships")]
     public class PlayerChampionship
     {
         [Key]

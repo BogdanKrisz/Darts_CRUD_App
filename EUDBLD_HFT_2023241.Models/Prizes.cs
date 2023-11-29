@@ -13,7 +13,7 @@ namespace EUDBLD_HFT_2023241.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("id", TypeName = "int")]
+        [Column("prizes_id", TypeName = "int")]
         public int Id { get; set; }
 
         [NotMapped]
@@ -22,11 +22,10 @@ namespace EUDBLD_HFT_2023241.Models
         [ForeignKey(nameof(Championship))]
         public int ChampionshipId { get; set; }
 
-        [MaxLength(3)]
+        [Range(0,1000)]
         [Required]
         public int Place {  get; set; }
 
-        [MaxLength(100)]
         [Required]
         public int Price { get; set; }
     }
