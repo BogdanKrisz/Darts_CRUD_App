@@ -21,10 +21,23 @@ namespace EUDBLD_HFT_2023241.Models
         public string Name { get; set; }
 
         [NotMapped]
-        public virtual ICollection<Championship> Championships { get; set; } // Melyik bajnokságokon vett részt
+        public virtual ICollection<Championship> AttendedChampionships { get; set; } // Melyik bajnokságokon vett részt
 
         // Helyezés -> on the fly a logicból
         [NotMapped]
         public int RankInWorld => 1;
+
+        public Player()
+        {
+            
+        }
+
+        // 1#LukeHumphries
+        public Player(string line)
+        {
+            string[] split = line.Split('#');
+            Id = int.Parse(split[0]);
+            Name = split[1];
+        }
     }
 }
