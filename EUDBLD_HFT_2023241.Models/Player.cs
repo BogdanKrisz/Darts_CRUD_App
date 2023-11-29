@@ -20,6 +20,9 @@ namespace EUDBLD_HFT_2023241.Models
         [Required]
         public string Name { get; set; }
 
+        [NotMapped]
+        public virtual ICollection<Championship> Championships { get; set; } // Melyik bajnokságokon vett részt
+
         // Helyezés -> on the fly a logicból
         [NotMapped]
         public int RankInWorld => 1;

@@ -22,5 +22,7 @@ namespace EUDBLD_HFT_2023241.Models
 
         [Required]
         public DateTime Date { get; set; }
+
+        public int PrizePool { get; set; }
     }
 }
