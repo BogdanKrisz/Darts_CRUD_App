@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EUDBLD_HFT_2023241.Repository.Data
 {
-    internal class DartsDbContext : DbContext
+    public class DartsDbContext : DbContext
     {
         public DbSet<Player> Players { get; set; }
         public DbSet<Championship> Championships { get; set; }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using EUDBLD_HFT_2023241.Repository.Data;
+using System;
+using System.Linq;
+using System.Threading.Channels;
 
 namespace EUDBLD_HFT_2023241.Repository
 {
@@ -6,7 +9,7 @@ namespace EUDBLD_HFT_2023241.Repository
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
         }
     }
 }

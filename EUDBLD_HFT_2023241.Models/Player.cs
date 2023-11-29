@@ -32,7 +32,7 @@ namespace EUDBLD_HFT_2023241.Models
             
         }
 
-        // 1#LukeHumphries
+        // 1#Michael Smith
         public Player(string line)
         {
             string[] split = line.Split('#');

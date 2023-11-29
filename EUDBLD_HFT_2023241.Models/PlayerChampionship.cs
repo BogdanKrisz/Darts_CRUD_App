@@ -19,13 +19,11 @@ namespace EUDBLD_HFT_2023241.Models
         [NotMapped]
         public virtual Player Player { get; set; }
 
-        [ForeignKey(nameof(Player))]
         public int PlayerId { get; set; }
 
         [NotMapped]
         public virtual Championship Championship{ get; set; }
 
-        [ForeignKey(nameof(Championship))]
         public int ChampionshipId { get; set; }
 
         [MaxLength(50)]

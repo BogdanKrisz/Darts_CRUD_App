@@ -19,7 +19,6 @@ namespace EUDBLD_HFT_2023241.Models
         [NotMapped]
         public virtual Championship Championship { get; set; }
 
-        [ForeignKey(nameof(Championship))]
         public int ChampionshipId { get; set; }
 
         [Range(0,1000)]
