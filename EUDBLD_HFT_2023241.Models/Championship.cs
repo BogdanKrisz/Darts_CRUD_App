@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace EUDBLD_HFT_2023241.Models
 {
     [Table("championships")]
-    public class Championship
+    public class Championship : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("championship_id", TypeName = "int")]
-        public int Id { get; set; }
+        public override int Id { get; set; }
 
         [StringLength(240)]
         [Required]
@@ -38,7 +38,7 @@ namespace EUDBLD_HFT_2023241.Models
             
         }
 
-        // 1#GrandSlamOfDarts23#2023.11.12.#2023.11.20.#32#650,000
+        // 1#PDC World Darts Championship 23#2022.12.15.#2023.01.03.#96#2500000
         public Championship(string line)
         {
             string[] split = line.Split('#');

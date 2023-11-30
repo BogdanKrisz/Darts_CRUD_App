@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 namespace EUDBLD_HFT_2023241.Models
 {
     [Table("players")]
-    public class Player
+    public class Player : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("player_id", TypeName = "int")]
-        public int Id { get; set; }
+        public override int Id { get; set; }
 
         [StringLength(240)]
         [Required]
