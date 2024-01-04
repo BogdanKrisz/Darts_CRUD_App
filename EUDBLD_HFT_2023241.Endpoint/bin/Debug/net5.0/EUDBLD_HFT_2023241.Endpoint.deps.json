@@ -463,6 +463,20 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/5.0.14": {},
+      "Microsoft.EntityFrameworkCore.InMemory/5.0.14": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.14"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "5.0.14.0",
+            "fileVersion": "5.0.1421.61504"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Proxies/5.0.14": {
         "dependencies": {
           "Castle.Core": "4.4.1",
@@ -1677,6 +1691,7 @@
         "dependencies": {
           "EUDBLD_HFT_2023241.Models": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.14",
+          "Microsoft.EntityFrameworkCore.InMemory": "5.0.14",
           "Microsoft.EntityFrameworkCore.Proxies": "5.0.14",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.14"
         },
@@ -3429,6 +3444,13 @@
       "sha512": "sha512-Z9b4jHTwT1KshOJslNuW9fU7A86n48q1ysn5D6K023qCMw0/NwDvhqjSf/2lK0U0Tpgz3XBa2Tc51Yf20uZeNg==",
       "path": "microsoft.entityframeworkcore.analyzers/5.0.14",
       "hashPath": "microsoft.entityframeworkcore.analyzers.5.0.14.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/5.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hg6w078HvUtlK9tIoKJJ+f905JNcYqMMbsbAEFQiSdhesFfrR+SrXbUuLCFhOg3sC8Iw6tNZeEglOSEsIifQ+Q==",
+      "path": "microsoft.entityframeworkcore.inmemory/5.0.14",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.5.0.14.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Proxies/5.0.14": {
       "type": "package",

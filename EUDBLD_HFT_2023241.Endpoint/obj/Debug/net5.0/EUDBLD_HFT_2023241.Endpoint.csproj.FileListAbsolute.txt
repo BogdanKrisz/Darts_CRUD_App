@@ -66,3 +66,5 @@ P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.En
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.pdb
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.genruntimeconfig.cache
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\ref\EUDBLD_HFT_2023241.Endpoint.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.sourcelink.json

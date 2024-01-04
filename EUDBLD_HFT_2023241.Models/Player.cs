@@ -30,7 +30,7 @@ namespace EUDBLD_HFT_2023241.Models
 
         public Player()
         {
-            
+            AttendedChampionships = new HashSet<Championship>();
         }
 
         // 1#Michael Smith

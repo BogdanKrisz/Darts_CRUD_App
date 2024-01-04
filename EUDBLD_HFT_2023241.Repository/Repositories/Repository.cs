@@ -15,7 +15,7 @@ namespace EUDBLD_HFT_2023241.Repository.Repositories
 
         public Repository(DartsDbContext ctx)
         {
-            this.ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
+            this.ctx = ctx ?? throw  new ArgumentNullException(nameof(ctx));
         }
 
         public void Create(T item)

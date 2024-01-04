@@ -29,13 +29,17 @@ namespace EUDBLD_HFT_2023241.Models
         public int MaxAttender;
 
         [NotMapped]
-        public ICollection<Player> Attenders { get; set; }
+        public virtual ICollection<Player> Attenders { get; set; }
+
+        [NotMapped]
+        public virtual ICollection<Prizes> Prizes { get; set; }
 
         public int PrizePool { get; set; }
 
         public Championship()
         {
-            
+            Attenders = new HashSet<Player>();
+            Prizes = new HashSet<Prizes>();
         }
 
         // 1#PDC World Darts Championship 23#2022.12.15.#2023.01.03.#96#2500000

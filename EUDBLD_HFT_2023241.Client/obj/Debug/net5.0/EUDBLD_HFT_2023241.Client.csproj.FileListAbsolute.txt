@@ -13,3 +13,4 @@ P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Cl
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Client\obj\Debug\net5.0\refint\EUDBLD_HFT_2023241.Client.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Client\obj\Debug\net5.0\EUDBLD_HFT_2023241.Client.pdb
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Client\obj\Debug\net5.0\ref\EUDBLD_HFT_2023241.Client.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Client\obj\Debug\net5.0\EUDBLD_HFT_2023241.Client.sourcelink.json
