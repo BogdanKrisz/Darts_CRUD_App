@@ -8,14 +8,18 @@ namespace EUDBLD_HFT_2023241.Logic
     {
         void Create(Player item);
         void Delete(int id);
-        Player Read(int id);
-        Player Read(string name);
-        IQueryable<Player> ReadAll();
-        void Update(Player item);
-
-        IQueryable<Championship> GetAttendedChampionships(int id);
+        IQueryable<Championship> GetAttendedChampionships(int playerId);
         Player GetPlayerByRank(int rank);
         Player GetPlayerByRank(int rank, DateTime time);
-        IQueryable<Player> GetPlayersInOrder();
+        IQueryable<PlayerLogic.PlayerRank> GetPlayersInOrder();
+        IQueryable<PlayerLogic.PlayerRank> GetPlayersInOrder(DateTime time);
+        int GetPlayersPlaceInChampionship(int playerId, int championshipId);
+        int GetPrizeForPlace(int championshipId, int place);
+        IQueryable<Player> GetTopPlayersFromChampionship(int championshipId, int numberOfPlayers);
+        IQueryable<Championship> PlayersRankingAttandences(int playerId);
+        IQueryable<Championship> PlayersRankingAttandences(int playerId, DateTime time);
+        Player Read(int id);
+        IQueryable<Player> ReadAll();
+        void Update(Player item);
     }
 }

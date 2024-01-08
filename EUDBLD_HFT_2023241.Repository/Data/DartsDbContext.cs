@@ -601,8 +601,6 @@ namespace EUDBLD_HFT_2023241.Repository.Data
                 new Prizes("156#22#65#7500")
             });
             
-            // Lekérdezések: Ha nincs olyan place a priceban, akkor nem számoljuk
-            // Bajnokságból a top4 lekérdezhető legyen
         }
     }
 }
