@@ -1,54 +1,96 @@
-﻿using EUDBLD_HFT_2023241.Logic.Interfaces;
-using EUDBLD_HFT_2023241.Models;
+﻿using EUDBLD_HFT_2023241.Models;
 using EUDBLD_HFT_2023241.Repository.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EUDBLD_HFT_2023241.Logic
 {
     public class PlayerLogic : IPlayerLogic
     {
-        IPlayerRepository playerRepository;
+        IRepository<Player> repo;
 
-        public PlayerLogic(IPlayerRepository playerRepository)
+        public PlayerLogic(IRepository<Player> repo)
         {
-            this.playerRepository = playerRepository;
+            this.repo = repo;
+        }
+
+        public void Create(Player item)
+        {
+            if (item.Name.Length < 5)
+            {
+                throw new ArgumentException("The name is to short!");
+            }
+            this.repo.Create(item);
+        }
+
+        public void Delete(int id)
+        {
+            this.repo.Delete(id);
+        }
+
+        public Player Read(int id)
+        {
+            return this.repo.Read(id);
+        }
+
+        // ?
+        public Player Read(string name)
+        {
+            return this.repo.ReadAll().FirstOrDefault(t => t.Name == name);
+        }
+        //
+
+        public IQueryable<Player> ReadAll()
+        {
+            return this.repo.ReadAll();
+        }
+
+        public void Update(Player item)
+        {
+            this.repo.Update(item);
         }
 
 
-        // itt valamit kell csinálni a rankingal
+        // non crud methods
 
-        // Get all players in place (money) order
-        public IQueryable<Player> GetAllPlayersInRakingOrder()
+        // a megadott évszámig számított 2év nyereményei alapján vett ranksor
+
+        public class PlayerRank
         {
-            return playerRepository.ReadAll()
-                .OrderBy(t => t.RankInWorld);
+            public Player player { get; set; }
+            public int wonMoney { get; set; }
+            public int rank { get; set; }
         }
 
-        // Get the 
-        public Player GetPlayerByPlace(int place, int year)
+        public class RankingsInOrder
         {
-
-            return playerRepository.ReadAll()
-                .First(t => t.RankInWorld == place);
+            public int Year { get; set; }
+            public IQueryable<Player> players { get; set; }
         }
 
-        // Get a players place in a specific year
-        public IQueryable<Player> GetPlayerByPlace(int place, int year)
+        // 5 db non crud metódus kell
+
+        public IQueryable<Player> GetPlayersInOrder()
         {
-            return playerRepository.ReadAll()
-                .Where(t => t.RankInWorld <= place)
-                .OrderBy(t => t.RankInWorld);
+
         }
 
-        public Player GetPlayerByName(string name)
+        public Player GetPlayerByRank(int rank, DateTime time)
         {
-            return playerRepository.ReadAll()
-                .First(t => t.Name == name);
+
         }
+
+        public Player GetPlayerByRank(int rank)
+        {
+            this.GetPlayerByRank(rank, DateTime.Now);
+        }
+
+        public IQueryable<Championship> GetAttendedChampionships(int id)
+        {
+
+        }
+        // Melyik tornán nem vett részt adott évben
+        // Melyik tornákon vett rész adott évben
 
 
     }

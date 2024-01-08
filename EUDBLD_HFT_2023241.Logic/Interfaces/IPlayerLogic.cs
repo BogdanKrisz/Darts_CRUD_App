@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using EUDBLD_HFT_2023241.Models;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EUDBLD_HFT_2023241.Logic.Interfaces
+namespace EUDBLD_HFT_2023241.Logic
 {
-    internal interface IPlayerLogic
+    public interface IPlayerLogic
     {
+        void Create(Player item);
+        void Delete(int id);
+        Player Read(int id);
+        Player Read(string name);
+        IQueryable<Player> ReadAll();
+        void Update(Player item);
+
+        IQueryable<Championship> GetAttendedChampionships(int id);
+        Player GetPlayerByRank(int rank);
+        Player GetPlayerByRank(int rank, DateTime time);
+        IQueryable<Player> GetPlayersInOrder();
     }
 }
