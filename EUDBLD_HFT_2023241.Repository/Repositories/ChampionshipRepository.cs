@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EUDBLD_HFT_2023241.Repository.Repositories
 {
-    internal class ChampionshipRepository : Repository<Championship>, IChampionshipRepository
+    internal class ChampionshipRepository : Repository<Championship>, IRepository<Championship>
     {
         public ChampionshipRepository(DartsDbContext ctx) : base(ctx)
         {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EUDBLD_HFT_2023241.Repository.Repositories
 {
-    internal class PlayerRepository : Repository<Player>, IPlayerRepository
+    internal class PlayerRepository : Repository<Player>, IRepository<Player>
     {
         public PlayerRepository(DartsDbContext ctx) : base(ctx)
         {

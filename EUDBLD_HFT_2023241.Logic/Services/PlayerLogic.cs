@@ -12,6 +12,7 @@ namespace EUDBLD_HFT_2023241.Logic
     public class PlayerLogic : IPlayerLogic
     {
         IPlayerRepository playerRepository;
+
         public PlayerLogic(IPlayerRepository playerRepository)
         {
             this.playerRepository = playerRepository;

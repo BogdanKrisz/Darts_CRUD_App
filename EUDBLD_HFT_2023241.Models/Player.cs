@@ -24,10 +24,6 @@ namespace EUDBLD_HFT_2023241.Models
         [NotMapped]
         public virtual ICollection<Championship> AttendedChampionships { get; set; } // Melyik bajnokságokon vett részt
 
-        // Helyezés -> on the fly a logicból
-        [NotMapped]
-        public int RankInWorld => 1;
-
         public Player()
         {
             AttendedChampionships = new HashSet<Championship>();
