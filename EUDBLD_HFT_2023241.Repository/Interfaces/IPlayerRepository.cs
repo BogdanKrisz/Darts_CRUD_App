@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace EUDBLD_HFT_2023241.Repository.Interfaces
 {
-    internal interface IPlayerRepository : IRepository<Player>
+    public interface IPlayerRepository : IRepository<Player>
     {
-        IQueryable<Player> GetTopPlayers(int numOfPlayers);
+        //IQueryable<Player> GetTopPlayers(int numOfPlayers);
     }
 }

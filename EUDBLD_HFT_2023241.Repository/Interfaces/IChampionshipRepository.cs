@@ -10,7 +10,6 @@ namespace EUDBLD_HFT_2023241.Repository.Interfaces
 {
     internal interface IChampionshipRepository : IRepository<Championship>
     {
-        void AddPlayer(Player player);
-        void AddPlayer(ICollection players);
+        
     }
 }

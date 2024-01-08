@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace EUDBLD_HFT_2023241.Models
 {
     [Table("playersChampionships")]
-    public class PlayerChampionship
+    public class PlayerChampionship : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id", TypeName = "int")]
-        public int Id { get; set; }
+        public override int Id { get; set; }
 
         [NotMapped]
         public virtual Player Player { get; set; }
