@@ -24,7 +24,6 @@ namespace EUDBLD_HFT_2023241.Repository.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            // lazy loading
             if (!builder.IsConfigured)
             {
                 builder

@@ -17,8 +17,6 @@ namespace EUDBLD_HFT_2023241.Client
     // !! Kivenni minden függőséget REST API -nál, kiéve MODELS-t
     // !! Startup -ot visszaállítani !!
 
-    // !!! TODO : prizes 
-    // Rank at a certain day
     internal class Program
     {
         static PlayerLogic playerLogic;
@@ -76,18 +74,29 @@ namespace EUDBLD_HFT_2023241.Client
         {
             if (entity == "Player Ranks")
             {
-                foreach (var item in playerLogic.GetPlayersInOrder())
+                var playersInOrder = playerLogic.GetPlayersInOrder();
+                int i = 0;
+                foreach (var item in playersInOrder)
                 {
-                    Console.WriteLine($"Rank {playerLogic.GetPlayersRank(item.P.Id)}: {item.P.Name}\t\t({playerLogic.PlayersRankingMoney(item.P.Id)} Pounds)");
+                    Console.WriteLine($"Rank {++i}: {item.P.Name}\t\t({playerLogic.PlayersRankingMoney(item.P.Id)} Pounds)");
                 }
                 Console.ReadLine();
             }
             if (entity == "Custom Player Ranks")
             {
-                DateTime customDate = DateTime.Parse(GetStringFromUser("Write a date: "));
-                foreach (var item in playerLogic.GetPlayersInOrder(customDate))
+                try
                 {
-                    Console.WriteLine($"Rank {playerLogic.GetPlayersRank(item.P.Id, customDate)}: {item.P.Name}\t\t({playerLogic.PlayersRankingMoney(item.P.Id, customDate)} Pounds)");
+                    DateTime customDate = DateTime.Parse(GetStringFromUser("Write a date: "));
+                    var playersInOrder = playerLogic.GetPlayersInOrder(customDate);
+                    int i = 0;
+                    foreach (var item in playersInOrder)
+                    {
+                        Console.WriteLine($"Rank {++i}: {item.P.Name}\t\t({playerLogic.PlayersRankingMoney(item.P.Id)} Pounds)");
+                    }
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine(exc.Message);
                 }
                 Console.ReadLine();
             }
@@ -150,7 +159,7 @@ namespace EUDBLD_HFT_2023241.Client
                 Player current = (Player)e;
                 string title = "";
                 title += "Name: " + current.Name + "\n";
-                title += "Current Rank: " + playerLogic.GetPlayersRank(current.Id) + "\n";
+                title += "Current Rank: " + playerLogic.GetPlayersRank(current) + "\n";
                 title += "Current winnings: " + playerLogic.PlayersRankingMoney(current.Id) + " Pounds \n";
 
                 var championshipAssignSubMenu = new ConsoleMenu()
@@ -176,7 +185,7 @@ namespace EUDBLD_HFT_2023241.Client
                     List<Player> topPlayers = playerLogic.GetTopPlayersFromChampionship(e.Id, 4).ToList();
                     for (int i = 0; i < topPlayers.Count; i++)
                     {
-                        Console.WriteLine($"{playerLogic.GetPlayersPlaceInChampionship(topPlayers[i].Id, e.Id)}.Hely: {topPlayers[i].Name}");
+                        Console.WriteLine($"{playerLogic.GetPlayersPlaceInChampionship(topPlayers[i].Id, e.Id)}.Place: {topPlayers[i].Name}");
                     }
                 }
                 catch(Exception exc)
@@ -190,10 +199,10 @@ namespace EUDBLD_HFT_2023241.Client
                 {
                     Championship current = (Championship)e;
                     Championship result = championshipLogic.Read(current.Id);
-                    List<Player> participants = championshipLogic.GetChampionshipParticipants(current.Id, true).ToList();
+                    List<Player> participants = playerLogic.GetTopPlayersFromChampionship(current.Id, current.Attenders.Count()).ToList();
                     foreach (var item in participants)
                     {
-                        Console.WriteLine(item.Name + ": " + playerLogic.GetPlayersPlaceInChampionship(item.Id, current.Id) + ".Place");
+                        Console.WriteLine(playerLogic.GetPlayersPlaceInChampionship(item.Id, current.Id) + ".Place: " + item.Name);
                     }
                 }
                 catch (Exception exc) 
@@ -261,7 +270,9 @@ namespace EUDBLD_HFT_2023241.Client
                         Console.Write("* ");
                     string name = item.Name;
                     int place = playerLogic.GetPlayersPlaceInChampionship(current.Id, item.Id);
-                    int prize = playerLogic.GetPrizeForPlace(current.Id, place);
+                    int prize = 0;
+                    // Ha nincs beállítva prize a helyezésének, akkor 0 marad a nyeremény
+                    try { prize = playerLogic.GetPlayersPrizeForChampionship(current.Id, item); } catch {}
                     Console.WriteLine($"{name}:\t {place}.Place ({prize} pounds)");
                 }
             }
@@ -280,11 +291,11 @@ namespace EUDBLD_HFT_2023241.Client
                     try
                     {
                         var managedPlayerSubMenu = new ConsoleMenu();
-                        foreach (var item in championshipLogic.GetChampionshipMissingPlayers(e.Id))
+                        foreach (var item in playerLogic.GetChampionshipMissingPlayers(current))
                         {
                             managedPlayerSubMenu.Add(item.Name, (thisMenu) =>
                             {
-                                championshipLogic.AddPlayerToChampionship(e.Id, item.Id, GetIntFromUser("What place did this player finished at?: "));
+                                playerChampionshipLogic.Create(new PlayerChampionship() { ChampionshipId = e.Id, PlayerId = item.Id, Place = GetIntFromUser("What place did this player finished at?: ") });
                                 thisMenu.CloseMenu();
                                 Console.WriteLine("Player successfully added to the championship!");
                             });
@@ -307,9 +318,9 @@ namespace EUDBLD_HFT_2023241.Client
                     try
                     {
                         var managedPlayerSubMenu = new ConsoleMenu();
-                        foreach (var item in championshipLogic.GetChampionshipParticipants(current.Id))
+                        foreach (var item in current.Attenders)
                         {
-                            managedPlayerSubMenu.Add($"{item.Name} ({championshipLogic.GetPlayersPlaceInChampionship(item.Id, current.Id)})", (thisMenu) =>
+                            managedPlayerSubMenu.Add($"{item.Name} ({playerLogic.GetPlayersPlaceInChampionship(item.Id, current.Id)})", (thisMenu) =>
                             {
                                 var old = playerChampionshipLogic.Read(playerChampionshipLogic.GetId(item.Id, current.Id));
                                 old.Place = GetIntFromUser("What place did this player finished at?: ");
@@ -335,7 +346,7 @@ namespace EUDBLD_HFT_2023241.Client
                 if (entity == "Remove Player")
                 {
                     var managedPlayerSubMenu = new ConsoleMenu();
-                    foreach (var item in championshipLogic.GetChampionshipParticipants(current.Id))
+                    foreach (var item in current.Attenders)
                     {
                         managedPlayerSubMenu.Add(item.Name, (thisMenu) =>
                         {
@@ -429,13 +440,7 @@ namespace EUDBLD_HFT_2023241.Client
                 {
                     try
                     {
-                        Prizes newPrize = new Prizes()
-                        {
-                            ChampionshipId = current.Id,
-                            Place = GetIntFromUser("Place: "),
-                            Price = GetIntFromUser("Prize: ")
-                        };
-                        prizeLogic.Create(newPrize);
+                        prizeLogic.Create(new Prizes() { ChampionshipId = current.Id, Place = GetIntFromUser("Place: "), Price = GetIntFromUser("Prize: ") });
                         Console.WriteLine("New Prize added Successfully!");
                     }
                     catch (Exception exc)
@@ -519,6 +524,7 @@ namespace EUDBLD_HFT_2023241.Client
             }
             Console.ReadLine();
         }
+        #endregion List  
 
         static int GetIntFromUser(string text)
         {
@@ -531,7 +537,7 @@ namespace EUDBLD_HFT_2023241.Client
             Console.Write(text);
             return Console.ReadLine();
         }
-#endregion List   
+ 
 
         static void Main(string[] args)
         {
@@ -542,10 +548,10 @@ namespace EUDBLD_HFT_2023241.Client
             var prizesRepo = new PrizesRepository(ctx);
             var playerChampionshipRepo = new PlayerChampionshipRepository(ctx);
 
-            playerLogic = new PlayerLogic(playerRepo, playerChampionshipRepo, prizesRepo, championshipRepo);
-            championshipLogic = new ChampionshipLogic(championshipRepo, playerChampionshipRepo, playerRepo);
-            prizeLogic = new PrizeLogic(prizesRepo);
-            playerChampionshipLogic = new PlayerChampionshipLogic(playerChampionshipRepo);
+            playerLogic = new PlayerLogic(playerRepo, playerChampionshipRepo);
+            championshipLogic = new ChampionshipLogic(championshipRepo, playerChampionshipRepo);
+            prizeLogic = new PrizeLogic(prizesRepo, championshipRepo);
+            playerChampionshipLogic = new PlayerChampionshipLogic(playerChampionshipRepo, championshipRepo);
 
             var playerSubmenu = new ConsoleMenu(args, level: 1)
                 .Add("Create Player", () => Create("Players"))

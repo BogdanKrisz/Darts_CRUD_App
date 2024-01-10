@@ -10,41 +10,45 @@ namespace EUDBLD_HFT_2023241.Logic
 {
     public class PlayerChampionshipLogic : IPlayerChampionshipLogic
     {
-        IRepository<PlayerChampionship> repo;
+        IRepository<PlayerChampionship> plChRepo;
+        IRepository<Championship> cRepo;
 
-        public PlayerChampionshipLogic(IRepository<PlayerChampionship> repo)
+        public PlayerChampionshipLogic(IRepository<PlayerChampionship> repo, IRepository<Championship> cRepo)
         {
-            this.repo = repo;
+            this.plChRepo = repo;
+            this.cRepo = cRepo;
         }
 
         public void Create(PlayerChampionship item)
         {
-            this.repo.Create(item);
+            this.plChRepo.Create(item);
         }
 
         public void Delete(int id)
         {
-            this.repo.Delete(id);
+            this.plChRepo.Delete(id);
         }
 
         public PlayerChampionship Read(int id)
         {
-            return this.repo.Read(id);
+            return this.plChRepo.Read(id);
         }
 
         public IQueryable<PlayerChampionship> ReadAll()
         {
-            return this.repo.ReadAll();
+            return this.plChRepo.ReadAll();
         }
 
         public void Update(PlayerChampionship item)
         {
-            this.repo.Update(item);
+            this.plChRepo.Update(item);
         }
+
+        // Non crud
 
         public int GetId(int playerId, int ChampionshipId)
         {
-            return this.repo.ReadAll().FirstOrDefault(t => t.ChampionshipId == ChampionshipId && t.PlayerId == playerId).Id;
+            return this.plChRepo.ReadAll().FirstOrDefault(t => t.ChampionshipId == ChampionshipId && t.PlayerId == playerId).Id;
         }
     }
 }
