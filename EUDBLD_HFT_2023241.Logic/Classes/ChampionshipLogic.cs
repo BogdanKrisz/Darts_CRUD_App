@@ -21,6 +21,15 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Create(Championship item)
         {
+            if (item.MaxAttender < 2)
+                throw new ArgumentException("The tournament has too few max attenders!");
+
+            if (item.PrizePool <= 0)
+                throw new ArgumentException("Prize pool can't be less or equal to 0!");
+
+            if (item.StartDate > item.EndDate)
+                throw new ArgumentException("Start Date must be earlier than the End Date!");
+
             this.cRepo.Create(item);
         }
 
@@ -41,6 +50,15 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Update(Championship item)
         {
+            if (item.MaxAttender < 2)
+                throw new ArgumentException("The tournament has too few max attenders!");
+
+            if (item.PrizePool <= 0)
+                throw new ArgumentException("Prize pool can't be less or equal to 0!");
+
+            if (item.StartDate > item.EndDate)
+                throw new ArgumentException("Start Date must be earlier than the End Date!");
+
             this.cRepo.Update(item);
         }
 

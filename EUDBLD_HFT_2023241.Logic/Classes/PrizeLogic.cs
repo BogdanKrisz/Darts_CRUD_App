@@ -22,6 +22,23 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Create(Prizes item)
         {
+            var champship = cRepo.Read(item.ChampionshipId);
+
+            if (champship == null)
+                throw new ArgumentNullException("This championship doesn't exist!");
+
+            if (item.Place <= 0 || item.Place > champship.MaxAttender)
+                throw new ArgumentNullException("This place doesn't exist in the championship!");
+
+            if (item.Price < 0)
+                throw new ArgumentException("The prize can't be negative!");
+
+            if (item.Price > champship.PrizePool)
+                throw new ArgumentException("The prize can't be more then the whole prize pool!");
+
+            if (pRepo.ReadAll().FirstOrDefault(t => t.Championship == champship && t.Place == item.Place) != null)
+                throw new ArgumentException("This place already has a prize!");
+
             this.pRepo.Create(item);
         }
 
@@ -42,6 +59,23 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Update(Prizes item)
         {
+            var champship = cRepo.Read(item.ChampionshipId);
+
+            if (champship == null)
+                throw new ArgumentNullException("This championship doesn't exist!");
+
+            if (item.Place <= 0 || item.Place > champship.MaxAttender)
+                throw new ArgumentNullException("This place doesn't exist in the championship!");
+
+            if (item.Price < 0)
+                throw new ArgumentException("The prize can't be negative!");
+
+            if (item.Price > champship.PrizePool)
+                throw new ArgumentException("The prize can't be more then the whole prize pool!");
+
+            if (pRepo.ReadAll().FirstOrDefault(t => t.Championship == champship && t.Place == item.Place && t.Id != item.Id) != null)
+                throw new ArgumentException("This place already has a prize!");
+
             this.pRepo.Update(item);
         }
 

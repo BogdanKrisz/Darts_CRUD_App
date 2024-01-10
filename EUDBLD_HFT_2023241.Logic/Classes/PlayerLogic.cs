@@ -24,6 +24,9 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Create(Player item)
         {
+            if (item.Name.Length < 5)
+                throw new ArgumentException("Name is too short!");
+
             this.playerRepo.Create(item);
         }
 
@@ -44,6 +47,9 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Update(Player item)
         {
+            if (item.Name.Length < 5)
+                throw new ArgumentException("Name is too short!");
+
             this.playerRepo.Update(item);
         }
 
