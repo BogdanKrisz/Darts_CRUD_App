@@ -1,10 +1,12 @@
 ﻿using EUDBLD_HFT_2023241.Models;
-using EUDBLD_HFT_2023241.Repository.Interfaces;
+using EUDBLD_HFT_2023241.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 
 namespace EUDBLD_HFT_2023241.Logic
 {
@@ -13,19 +15,21 @@ namespace EUDBLD_HFT_2023241.Logic
         IRepository<Player> playerRepo;
         IRepository<PlayerChampionship> plChRepo;
         IRepository<Prizes> prizeRepo;
+        IRepository<Championship> chRepo;
 
-        public PlayerLogic(IRepository<Player> playerRepo, IRepository<PlayerChampionship> plChRepo, IRepository<Prizes> prizeRepo)
+        public PlayerLogic(IRepository<Player> playerRepo, IRepository<PlayerChampionship> plChRepo, IRepository<Prizes> prizeRepo, IRepository<Championship> chRepo)
         {
             this.playerRepo = playerRepo;
             this.plChRepo = plChRepo;
             this.prizeRepo = prizeRepo;
+            this.chRepo = chRepo;
         }
 
         public void Create(Player item)
         {
             if (item.Name.Length < 5)
             {
-                throw new ArgumentException("Túl rövid a név!");
+                throw new ArgumentException("Name is too short!");
             }
             this.playerRepo.Create(item);
         }
@@ -59,32 +63,38 @@ namespace EUDBLD_HFT_2023241.Logic
             public int Money { get; set; }
         }
 
-        public IQueryable<PlayerRank> GetPlayersInOrder(DateTime time)
+        // Returns the players in ranking order at the given date
+        public IEnumerable<PlayerRank> GetPlayersInOrder(DateTime time)
         {
             PlayerRank[] result = new PlayerRank[playerRepo.ReadAll().Count()];
             int resultIdx = 0;
 
             foreach (var player in playerRepo.ReadAll())
             {
-                int money = 0;
-                var pChampships = PlayersRankingAttandences(player.Id, time);
-                foreach (var champship in pChampships)
-                {
-                    money += GetPrizeForPlace(champship.Id, GetPlayersPlaceInChampionship(player.Id, champship.Id));
-                }
                 result[resultIdx++] = new PlayerRank()
                 {
                     P = player,
-                    Money = money
+                    Money = PlayersRankingMoney(player.Id, time)
                 };
             }
-
-            result.OrderBy(p => p.Money);
-            return result.AsQueryable();
+            return result.OrderByDescending(p => p.Money).AsQueryable();
         }
-        public IQueryable<PlayerRank> GetPlayersInOrder()
+        public IEnumerable<PlayerRank> GetPlayersInOrder()
         {
             return GetPlayersInOrder(DateTime.Now);
+        }
+
+        public int PlayersRankingMoney(int playerId, DateTime time)
+        {
+            int money = 0;
+            var pChampships = PlayersRankingAttandences(playerId, time);
+            foreach (var champship in pChampships)
+                money += GetPrizeForPlace(champship.Id, GetPlayersPlaceInChampionship(playerId, champship.Id));
+            return money;
+        }
+        public int PlayersRankingMoney(int playerId)
+        {
+            return this.PlayersRankingMoney(playerId, DateTime.Now);
         }
 
         // Get the given player's attended championships in the previous 2 years from the given time
@@ -92,9 +102,9 @@ namespace EUDBLD_HFT_2023241.Logic
         public IQueryable<Championship> PlayersRankingAttandences(int playerId, DateTime time)
         {
             CheckPlayerId(playerId);
-            return this.playerRepo.ReadAll()
-                    .SelectMany(t => t.AttendedChampionships)
-                    .Where(chs => chs.EndDate >= time.AddYears(-2));
+            return from t in plChRepo.ReadAll()
+                   where t.PlayerId == playerId && t.Championship.EndDate > time.AddYears(-2) && t.Championship.EndDate <= time
+                   select t.Championship;
         }
         public IQueryable<Championship> PlayersRankingAttandences(int playerId)
         {
@@ -105,6 +115,7 @@ namespace EUDBLD_HFT_2023241.Logic
         // Returns the place of the given player in the given championship
         public int GetPlayersPlaceInChampionship(int playerId, int championshipId)
         {
+            // Ha nem vett részt egy bajnokságban, akkor ne fusson hibára
             CheckPlayerId(playerId);
             return this.plChRepo.ReadAll()
                 .FirstOrDefault(t => t.PlayerId == playerId && t.ChampionshipId == championshipId)
@@ -118,14 +129,14 @@ namespace EUDBLD_HFT_2023241.Logic
             if (place < 0)
                 throw new ArgumentOutOfRangeException("Nincs ilyen helyezés!");
             return this.prizeRepo.ReadAll()
-                .FirstOrDefault(t => t.ChampionshipId == championshipId && t.Place == place)
-                .Price;
+                    .FirstOrDefault(p => p.ChampionshipId == championshipId && p.Place == place)
+                    .Price;
         }
 
         // Gets a rank and a time and gives back a player on that rank on that time
         public Player GetPlayerByRank(int rank, DateTime time)
         {
-            IQueryable<PlayerRank> playersInOrder = GetPlayersInOrder(time);
+            IEnumerable<PlayerRank> playersInOrder = GetPlayersInOrder(time);
             if (rank < 0 || rank > playersInOrder.Count())
                 throw new ArgumentOutOfRangeException("Nincs ilyen helyezéssel játékos!");
             return playersInOrder.ElementAt(rank).P;
@@ -135,25 +146,44 @@ namespace EUDBLD_HFT_2023241.Logic
             return GetPlayerByRank(rank, DateTime.Now);
         }
 
+        // returns the rank of the given player at the given time
+        public int GetPlayersRank(int playerId, DateTime time)
+        {
+            CheckPlayerId(playerId);
+            return GetPlayersInOrder(time).ToList().FindIndex(t => t.P.Id == playerId) + 1;
+        }
+        public int GetPlayersRank(int playerId)
+        {
+            return this.GetPlayersRank(playerId, DateTime.Now);
+        }
+
         public IQueryable<Championship> GetAttendedChampionships(int playerId)
         {
             CheckPlayerId(playerId);
-            return this.playerRepo.Read(playerId).AttendedChampionships.AsQueryable();
+            return from t in plChRepo.ReadAll()
+                   where t.PlayerId == playerId
+                   select t.Championship;
+        }
+
+        public IQueryable<Championship> GetNOTAttendedChampionships(int playerId)
+        {
+            CheckPlayerId(playerId);
+            return chRepo.ReadAll().Except(GetAttendedChampionships(playerId));
         }
 
         // Returns the number of players given from a tournament in order starting with the 1st
         // Visszaadja a megadott számú játékost a tornán az elsőtől kezdve lefele
-        public IQueryable<Player> GetTopPlayersFromChampionship(int championshipId, int numberOfPlayers)
+        public IEnumerable<Player> GetTopPlayersFromChampionship(int championshipId, int numberOfPlayers)
         {
             var result = from t in plChRepo.ReadAll()
-                         where t.ChampionshipId == championshipId
+                         where t.ChampionshipId == championshipId && t.Place <= numberOfPlayers
                          orderby t.Place
                          select t.Player;
 
             if (result.Count() < 1)
-                throw new ArgumentException("Ez a torna üres!");
+                throw new ArgumentException("This championship doesnt have any participants!");
 
-            return result.Take(numberOfPlayers) ?? throw new ArgumentNullException("Nincs ilyen ID-val bajnokság!");
+            return result.Take(numberOfPlayers) ?? throw new ArgumentNullException("There is no Championship with this ID!");
         }
 
         // Check if the playid given is valid or not

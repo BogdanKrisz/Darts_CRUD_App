@@ -1,0 +1,12 @@
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\bin\Release\net5.0\EUDBLD_HFT_2023241.Models.deps.json
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\bin\Release\net5.0\EUDBLD_HFT_2023241.Models.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\bin\Release\net5.0\EUDBLD_HFT_2023241.Models.pdb
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\obj\Release\net5.0\EUDBLD_HFT_2023241.Models.GeneratedMSBuildEditorConfig.editorconfig
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\obj\Release\net5.0\EUDBLD_HFT_2023241.Models.AssemblyInfoInputs.cache
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\obj\Release\net5.0\EUDBLD_HFT_2023241.Models.AssemblyInfo.cs
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\obj\Release\net5.0\EUDBLD_HFT_2023241.Models.csproj.CoreCompileInputs.cache
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\obj\Release\net5.0\EUDBLD_HFT_2023241.Models.sourcelink.json
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\obj\Release\net5.0\EUDBLD_HFT_2023241.Models.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\obj\Release\net5.0\refint\EUDBLD_HFT_2023241.Models.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\obj\Release\net5.0\EUDBLD_HFT_2023241.Models.pdb
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Models\obj\Release\net5.0\ref\EUDBLD_HFT_2023241.Models.dll

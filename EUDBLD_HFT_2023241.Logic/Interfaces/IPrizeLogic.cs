@@ -7,6 +7,7 @@ namespace EUDBLD_HFT_2023241.Logic
     {
         void Create(Prizes item);
         void Delete(int id);
+        IQueryable<Prizes> GetAllPrizesInChampionship(int championshipId);
         Prizes Read(int id);
         IQueryable<Prizes> ReadAll();
         void Update(Prizes item);

@@ -72,7 +72,7 @@ namespace EUDBLD_HFT_2023241.Repository.Data
                 new Player("14#Luke Littler")
             });
             
-            // id # Championship name # start date # end date # prizepool
+            // id # Championship name # start date # end date # maxAttenders # prizepool
             modelBuilder.Entity<Championship>().HasData(new Championship[]
             {
                 // 2021
@@ -100,7 +100,7 @@ namespace EUDBLD_HFT_2023241.Repository.Data
                 new Championship("18#World Grand Prix 2023#2023.10.02.#2023.10.08.#32#600000"),
                 new Championship("19#European Championship 2023#2023.10.26.#2023.10.29.#32#500000"),
                 new Championship("20#Grand Slam of Darts 2023#2023.11.11.#2023.11.19.#32#650000"),
-                new Championship("21#Players Championship Finals 2023#2021.11.24.#2021.11.26.#64#600000"),
+                new Championship("21#Players Championship Finals 2023#2023.11.24.#2023.11.26.#64#600000"),
 
                 // 2024
                 new Championship("22#World Darts Championship 2024#2023.12.15.#2024.01.03.#96#2500000")
@@ -121,7 +121,7 @@ namespace EUDBLD_HFT_2023241.Repository.Data
                 new PlayerChampionship("9#1#9#2"),
                 new PlayerChampionship("10#1#10#9"),
                 new PlayerChampionship("11#1#11#17"),
-                new PlayerChampionship("12##1#12#2"),
+                new PlayerChampionship("12#1#12#2"),
                 new PlayerChampionship("13#1#13#1"),
                 new PlayerChampionship("14#1#14#33"),
                 new PlayerChampionship("15#1#15#1"),
@@ -298,7 +298,7 @@ namespace EUDBLD_HFT_2023241.Repository.Data
                 new PlayerChampionship("178#9#7#9"),
                 new PlayerChampionship("179#9#8#5"),
                 new PlayerChampionship("180#9#9#5"),
-                new PlayerChampionship("181#9#102R#"),
+                new PlayerChampionship("181#9#10#9"),
                 new PlayerChampionship("182#9#11#17"),
                 new PlayerChampionship("183#9#12#9"),
                 new PlayerChampionship("184#9#14#17"),
@@ -401,25 +401,25 @@ namespace EUDBLD_HFT_2023241.Repository.Data
             modelBuilder.Entity<Prizes>().HasData(new Prizes[]
             {
                 // 1. Championship (worlds 21)
-                new Prizes("1#15#1#500000"), // 1
-                new Prizes("2#15#2#200000"), // 2
-                new Prizes("3#15#3#100000"), // 3-4
-                new Prizes("4#15#5#50000"),  // 5-8
-                new Prizes("5#15#9#35000"),  // 9-16
-                new Prizes("6#15#17#25000"), // 17-32
-                new Prizes("7#15#33#15000"), // 33-64
-                new Prizes("8#15#65#7500"),  // 65-96
+                new Prizes("1#1#1#500000"), // 1
+                new Prizes("2#1#2#200000"), // 2
+                new Prizes("3#1#3#100000"), // 3-4
+                new Prizes("4#1#5#50000"),  // 5-8
+                new Prizes("5#1#9#35000"),  // 9-16
+                new Prizes("6#1#17#25000"), // 17-32
+                new Prizes("7#1#33#15000"), // 33-64
+                new Prizes("8#1#65#7500"),  // 65-96
 
                 // 2. Championship (uk 21)
-                new Prizes("9#16#1#100000"), // 1
-                new Prizes("10#16#2#40000"),  // 2
-                new Prizes("11#16#3#20000"),  // 3-4
-                new Prizes("12#16#5#12500"),  // 5-8
-                new Prizes("13#16#9#7500"),   // 9-16
-                new Prizes("14#16#17#4000"),  // 17-32
-                new Prizes("15#16#33#2000"),  // 33-64
-                new Prizes("16#16#65#1000"),  // 65-96
-                new Prizes("17#16#97#0"),    // Csak a UK Open championshipekben van olyan helyezés, ahol nincs pénz nyeremény (97-160)
+                new Prizes("9#2#1#100000"), // 1
+                new Prizes("10#2#2#40000"),  // 2
+                new Prizes("11#2#3#20000"),  // 3-4
+                new Prizes("12#2#5#12500"),  // 5-8
+                new Prizes("13#2#9#7500"),   // 9-16
+                new Prizes("14#2#17#4000"),  // 17-32
+                new Prizes("15#2#33#2000"),  // 33-64
+                new Prizes("16#2#65#1000"),  // 65-96
+                new Prizes("17#2#97#0"),    // Csak a UK Open championshipekben van olyan helyezés, ahol nincs pénz nyeremény (97-160)
 
                 // 3. Championship (matchplay 21)
                 new Prizes("18#3#1#150000"), // 1

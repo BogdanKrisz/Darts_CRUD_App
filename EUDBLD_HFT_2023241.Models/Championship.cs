@@ -26,7 +26,7 @@ namespace EUDBLD_HFT_2023241.Models
         [Required]
         public DateTime EndDate { get; set; }
 
-        public int MaxAttender;
+        public int MaxAttender { get; set; }
 
         [NotMapped]
         public virtual ICollection<Player> Attenders { get; set; }

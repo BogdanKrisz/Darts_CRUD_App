@@ -1,5 +1,5 @@
 ﻿using EUDBLD_HFT_2023241.Models;
-using EUDBLD_HFT_2023241.Repository.Interfaces;
+using EUDBLD_HFT_2023241.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +20,9 @@ namespace EUDBLD_HFT_2023241.Logic
         public void Create(Prizes item)
         {
             if (item.Price < 0)
-                throw new ArgumentOutOfRangeException("Nem lehet negatív a nyeremény!");
-            if (item.Price > item.Championship.PrizePool)
-                throw new ArgumentOutOfRangeException("Nagyobb a nyeremény, mint a prize pool!");
+                throw new ArgumentOutOfRangeException("Prize cant be negative!");
+            if (PlaceAlreadyHasAPrize(item.ChampionshipId, item.Place))
+                throw new ArgumentException("This place already has a prize!");
             this.repo.Create(item);
         }
 
@@ -44,6 +44,16 @@ namespace EUDBLD_HFT_2023241.Logic
         public void Update(Prizes item)
         {
             this.repo.Update(item);
+        }
+
+        public IQueryable<Prizes> GetAllPrizesInChampionship(int championshipId)
+        {
+            return this.repo.ReadAll().Where(t => t.ChampionshipId == championshipId);
+        }
+
+        bool PlaceAlreadyHasAPrize(int championshipId, int place)
+        {
+            return this.repo.ReadAll().FirstOrDefault(t => t.ChampionshipId == championshipId && t.Place == place) != null;
         }
     }
 }

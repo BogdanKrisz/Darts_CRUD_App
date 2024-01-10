@@ -1,12 +1,12 @@
 ﻿using EUDBLD_HFT_2023241.Models;
-using EUDBLD_HFT_2023241.Repository.Interfaces;
+using EUDBLD_HFT_2023241.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EUDBLD_HFT_2023241.Logic.Classes
+namespace EUDBLD_HFT_2023241.Logic
 {
     public class PlayerChampionshipLogic : IPlayerChampionshipLogic
     {
@@ -19,8 +19,6 @@ namespace EUDBLD_HFT_2023241.Logic.Classes
 
         public void Create(PlayerChampionship item)
         {
-            if (item.Championship.Attenders.Count() == item.Championship.MaxAttender)
-                throw new ArgumentOutOfRangeException("Nincs több férőhely ebben a bajnokságban!");
             this.repo.Create(item);
         }
 
@@ -42,6 +40,11 @@ namespace EUDBLD_HFT_2023241.Logic.Classes
         public void Update(PlayerChampionship item)
         {
             this.repo.Update(item);
+        }
+
+        public int GetId(int playerId, int ChampionshipId)
+        {
+            return this.repo.ReadAll().FirstOrDefault(t => t.ChampionshipId == ChampionshipId && t.PlayerId == playerId).Id;
         }
     }
 }
