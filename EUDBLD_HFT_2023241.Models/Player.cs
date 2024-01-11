@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace EUDBLD_HFT_2023241.Models
@@ -21,8 +22,9 @@ namespace EUDBLD_HFT_2023241.Models
         [Required]
         public string Name { get; set; }
 
+        [JsonIgnore]
         [NotMapped]
-        public virtual ICollection<Championship> AttendedChampionships { get; set; } // Melyik bajnokságokon vett részt
+        public virtual ICollection<Championship> AttendedChampionships { get; set; }
 
         public Player()
         {

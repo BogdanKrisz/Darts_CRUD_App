@@ -15,11 +15,13 @@ namespace EUDBLD_HFT_2023241.Logic
     {
         IRepository<Player> playerRepo;
         IRepository<PlayerChampionship> plChRepo;
+        IRepository<Championship> cRepo;
 
-        public PlayerLogic(IRepository<Player> playerRepo, IRepository<PlayerChampionship> plChRepo)
+        public PlayerLogic(IRepository<Player> playerRepo, IRepository<PlayerChampionship> plChRepo, IRepository<Championship> cRepo)
         {
             this.playerRepo = playerRepo;
             this.plChRepo = plChRepo;
+            this.cRepo = cRepo;
         }
 
         public void Create(Player item)
@@ -62,22 +64,28 @@ namespace EUDBLD_HFT_2023241.Logic
         }
 
         // Returns the players in ranking order at the given date
-        public IEnumerable<PlayerRank> GetPlayersInOrder(DateTime time)
+        public IEnumerable<Player> GetPlayersInOrder(DateTime time)
         {
-            PlayerRank[] result = new PlayerRank[playerRepo.ReadAll().Count()];
+            PlayerRank[] resultPlayerRanks = new PlayerRank[playerRepo.ReadAll().Count()];
             int resultIdx = 0;
 
             foreach (var player in playerRepo.ReadAll())
             {
-                result[resultIdx++] = new PlayerRank()
+                resultPlayerRanks[resultIdx++] = new PlayerRank()
                 {
                     P = player,
                     Money = PlayersRankingMoney(player.Id, time)
                 };
             }
-            return result.OrderByDescending(p => p.Money).AsQueryable();
+            var orderedPlayerRanks = resultPlayerRanks.OrderByDescending(p => p.Money).AsQueryable();
+            var result = new List<Player>();
+            foreach (var player in orderedPlayerRanks)
+            {
+                result.Add(player.P);
+            }
+            return result;
         }
-        public IEnumerable<PlayerRank> GetPlayersInOrder()
+        public IEnumerable<Player> GetPlayersInOrder()
         {
             return GetPlayersInOrder(DateTime.Now);
         }
@@ -88,7 +96,7 @@ namespace EUDBLD_HFT_2023241.Logic
             var rankingChampships = PlayersRankingAttandences(playerId, time);
             foreach (var champship in rankingChampships)
             {
-                try { money += GetPlayersPrizeForChampionship(playerId, champship); } catch { }
+                try { money += GetPlayersPrizeForChampionship(playerId, champship.Id); } catch { }
             }
 
             return money;
@@ -98,8 +106,9 @@ namespace EUDBLD_HFT_2023241.Logic
             return this.PlayersRankingMoney(playerId, DateTime.Now);
         }
 
-        public int GetPlayersPrizeForChampionship(int playerId, Championship champship)
+        public int GetPlayersPrizeForChampionship(int playerId, int champshipId)
         {
+            Championship champship = cRepo.Read(champshipId);
             if (!champship.Attenders.Contains(playerRepo.Read(playerId)))
                 throw new ArgumentException("This player didn't participate in this championship!");
 
@@ -135,18 +144,18 @@ namespace EUDBLD_HFT_2023241.Logic
         }
 
         // returns the rank of the given player at the given time
-        public int GetPlayersRank(Player player, DateTime time)
+        public int GetPlayersRank(int playerId, DateTime time)
         {
-            var playersWithMoney = GetPlayersInOrder(time);
-            var players = playersWithMoney.Select(p => p.P).ToList();
+            Player player = playerRepo.Read(playerId);
+            List<Player> players = GetPlayersInOrder(time).ToList();
             int i = 0;
             while (i < players.Count() && players[i] != player)
                 i++;
             return i + 1;
         }
-        public int GetPlayersRank(Player player)
+        public int GetPlayersRank(int playerId)
         {
-            return this.GetPlayersRank(player, DateTime.Now);
+            return this.GetPlayersRank(playerId, DateTime.Now);
         }
 
         public IQueryable<Championship> GetAttendedChampionships(int playerId)
@@ -155,8 +164,9 @@ namespace EUDBLD_HFT_2023241.Logic
             return result;
         }
 
-        public IQueryable<Player> GetChampionshipAttenders(Championship champship)
+        public IQueryable<Player> GetChampionshipAttenders(int champshipId)
         {
+            Championship champship = cRepo.Read(champshipId);
             var result = champship.Attenders;
             if (result.Count() < 1)
                 throw new ArgumentException("This championship doesnt have any participants!");
@@ -164,8 +174,9 @@ namespace EUDBLD_HFT_2023241.Logic
             return result.AsQueryable();
         }
 
-        public IQueryable<Player> GetChampionshipMissingPlayers(Championship champship)
+        public IQueryable<Player> GetChampionshipMissingPlayers(int champshipId)
         {
+            Championship champship = cRepo.Read(champshipId);
             return playerRepo.ReadAll().ToList().Except(champship.Attenders).AsQueryable();
         }
 

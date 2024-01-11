@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace EUDBLD_HFT_2023241.Models
@@ -16,6 +17,7 @@ namespace EUDBLD_HFT_2023241.Models
         [Column("prizes_id", TypeName = "int")]
         public override int Id { get; set; }
 
+        [JsonIgnore]
         [NotMapped]
         public virtual Championship Championship { get; set; }
 
