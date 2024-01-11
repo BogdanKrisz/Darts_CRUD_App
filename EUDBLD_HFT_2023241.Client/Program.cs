@@ -15,6 +15,12 @@ namespace EUDBLD_HFT_2023241.Client
 
         static ConsoleMenu baseMenu;
 
+        // Prizes update
+        // Add Players
+        // update players
+        // remove player
+
+
         static void Create(string entity)
         {
             if(entity == "Players")
@@ -118,7 +124,7 @@ namespace EUDBLD_HFT_2023241.Client
             if(entity == "Championships")
             {
                 var championshipListSubMenu = new ConsoleMenu();
-                var allChampships = rest.Get<Player>("Championship");
+                var allChampships = rest.Get<Championship>("Championship");
                 foreach (var item in allChampships)
                 {
                     championshipListSubMenu.Add(item.Name, (thisMenu) => { thisMenu.CloseMenu(); ItemSelected(item); });
@@ -305,7 +311,7 @@ namespace EUDBLD_HFT_2023241.Client
                             managedPlayerSubMenu.Add(item.Name, (thisMenu) =>
                             {
                                 var newPlayerChampionship = new PlayerChampionship() { ChampionshipId = e.Id, PlayerId = item.Id, Place = GetIntFromUser("What place did this player finished at?: ") };
-                                rest.Post<PlayerChampionship>(newPlayerChampionship, "PlayerChampionship");
+                                rest.Post(newPlayerChampionship, "PlayerChampionship");
                                 thisMenu.CloseMenu();
                                 Console.WriteLine("Player successfully added to the championship!");
                             });

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace EUDBLD_HFT_2023241.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class PrizesController : ControllerBase
     {

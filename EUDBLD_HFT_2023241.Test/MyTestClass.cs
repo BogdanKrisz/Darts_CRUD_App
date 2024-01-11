@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,7 +41,8 @@ namespace EUDBLD_HFT_2023241.Test
                 new Player("1#PlayerA"),
                 new Player("2#PlayerB"),
                 new Player("3#PlayerC"),
-                new Player("4#PlayerD")
+                new Player("4#PlayerD"),
+                new Player("5#PlayerE")
             };
         }
 
@@ -53,8 +55,11 @@ namespace EUDBLD_HFT_2023241.Test
                 new Championship("3#TestCh 23#2022.12.15.#2023.01.03.#96#900000"),
                 new Championship("4#TestCh 24#2023.12.15.#2024.01.03.#96#900000"),
             };
-            foreach (var player in AllPlayers)
-                player.AttendedChampionships = AllChampionships;
+            for (int i = 0; i < AllPlayers.Count()-1; i++)
+            {
+                AllPlayers[i].AttendedChampionships = AllChampionships;
+            }
+                
         }
 
         void setPlayerChampionships()
