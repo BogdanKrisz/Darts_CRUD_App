@@ -21,7 +21,7 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Create(PlayerChampionship item)
         {
-            var champship = cRepo.Read(item.ChampionshipId);
+            var champship = item.Championship;
             if (champship == null)
                 throw new ArgumentException("This championship doesn't exist!");
 
@@ -54,6 +54,19 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Update(PlayerChampionship item)
         {
+            var champship = item.Championship;
+            if (champship == null)
+                throw new ArgumentException("This championship doesn't exist!");
+
+            if (champship.Attenders.Count() == champship.MaxAttender)
+                throw new ArgumentException("There is no free space in the championship!");
+
+            if (plChRepo.ReadAll().FirstOrDefault(t => t.Championship == champship && t.PlayerId == item.PlayerId && t.Id != item.Id) != null)
+                throw new ArgumentException("This player is already in the championship!");
+
+            if (item.Place > champship.MaxAttender || item.Place < 0)
+                throw new ArgumentException("This place is not valid!");
+
             this.plChRepo.Update(item);
         }
 
