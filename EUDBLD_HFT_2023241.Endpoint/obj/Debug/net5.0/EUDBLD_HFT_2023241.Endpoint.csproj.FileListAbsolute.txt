@@ -9,8 +9,13 @@ P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.En
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Castle.Core.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Microsoft.OpenApi.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\EUDBLD_HFT_2023241.Logic.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\EUDBLD_HFT_2023241.Models.dll
@@ -23,7 +28,10 @@ P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.En
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.AssemblyInfoInputs.cache
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.AssemblyInfo.cs
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.csproj.CoreCompileInputs.cache
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.MvcApplicationPartsAssemblyInfo.cs
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.MvcApplicationPartsAssemblyInfo.cache
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.sourcelink.json
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.RazorTargetAssemblyInfo.cache
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\scopedcss\bundle\EUDBLD_HFT_2023241.Endpoint.styles.css
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\staticwebassets\EUDBLD_HFT_2023241.Endpoint.StaticWebAssets.Manifest.cache
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\staticwebassets\EUDBLD_HFT_2023241.Endpoint.StaticWebAssets.Pack.cache
@@ -31,12 +39,9 @@ P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.En
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\staticwebassets\msbuild.build.EUDBLD_HFT_2023241.Endpoint.props
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.EUDBLD_HFT_2023241.Endpoint.props
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.EUDBLD_HFT_2023241.Endpoint.props
-P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.RazorTargetAssemblyInfo.cache
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.csproj.CopyComplete
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\refint\EUDBLD_HFT_2023241.Endpoint.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.pdb
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.genruntimeconfig.cache
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\ref\EUDBLD_HFT_2023241.Endpoint.dll
-P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
-P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Endpoint\obj\Debug\net5.0\EUDBLD_HFT_2023241.Endpoint.sourcelink.json
