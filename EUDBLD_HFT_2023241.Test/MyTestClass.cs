@@ -12,7 +12,7 @@ namespace EUDBLD_HFT_2023241.Test
         protected List<Player> AllPlayers;
         protected List<Championship> AllChampionships;
         protected List<PlayerChampionship> AllPlayerChampionships;
-        protected List<Player> AllPrizes;
+        protected List<Prizes> AllPrizes;
 
         protected Player TestPlayer;
         protected Championship TestChampionship;
@@ -27,6 +27,7 @@ namespace EUDBLD_HFT_2023241.Test
             setPlayers();
             setChampionships();
             setPlayerChampionships();
+            AllPrizes = new List<Prizes>();
             setPrizes();
             TestPlayer = AllPlayers[0];
             TestChampionship = AllChampionships[0];
@@ -88,16 +89,19 @@ namespace EUDBLD_HFT_2023241.Test
 
         void setPrizes()
         {
+            int id = 1;
             for (int i = 0; i < AllChampionships.Count(); i++)
             {
                 AllChampionships[i].Attenders = AllPlayers;
                 AllChampionships[i].Prizes = new List<Prizes>()
                 {
-                    new Prizes() { Championship = AllChampionships[i], ChampionshipId = AllChampionships[i].Id, Place = 1, Price = 500000 },
-                    new Prizes() { Championship = AllChampionships[i], ChampionshipId = AllChampionships[i].Id, Place = 2, Price = 250000 },
-                    new Prizes() { Championship = AllChampionships[i], ChampionshipId = AllChampionships[i].Id, Place = 3, Price = 100000 },
-                    new Prizes() { Championship = AllChampionships[i], ChampionshipId = AllChampionships[i].Id, Place = 4, Price = 50000 },
+                    new Prizes() { Id = id++, Championship = AllChampionships[i], ChampionshipId = AllChampionships[i].Id, Place = 1, Price = 500000 },
+                    new Prizes() { Id = id++, Championship = AllChampionships[i], ChampionshipId = AllChampionships[i].Id, Place = 2, Price = 250000 },
+                    new Prizes() { Id = id++, Championship = AllChampionships[i], ChampionshipId = AllChampionships[i].Id, Place = 3, Price = 100000 },
+                    new Prizes() { Id = id++, Championship = AllChampionships[i], ChampionshipId = AllChampionships[i].Id, Place = 4, Price = 50000 },
                 };
+                foreach (var prize in AllChampionships[i].Prizes)
+                    AllPrizes.Add(prize);
             }
         }
     }

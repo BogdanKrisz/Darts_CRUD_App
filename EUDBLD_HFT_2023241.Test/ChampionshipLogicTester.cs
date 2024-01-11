@@ -93,19 +93,19 @@ namespace EUDBLD_HFT_2023241.Test
         [TestCase(2)]
         [TestCase(3)]
         [TestCase(4)]
-        public void ReadPlayerChampionship(int id)
+        public void ReadChampionship(int id)
         {
             Assert.That(() => logic.Read(id), Is.EqualTo(TestChampionship));
         }
 
         [Test]
-        public void ReadPlayerChampionshipUnsuccessfullyTest()
+        public void ReadChampionshipUnsuccessfullyTest()
         {
             Assert.That(() => logic.Read(444), Throws.ArgumentNullException);
         }
 
         [Test]
-        public void UpdatePlayerChampionshipTest()
+        public void UpdateChampionshipTest()
         {
             var old = TestChampionship;
             old.Name = "New Championship";
@@ -121,7 +121,7 @@ namespace EUDBLD_HFT_2023241.Test
         }
 
         [Test]
-        public void UpdatePlayerUnsuccessfullyTest()
+        public void UpdateChampionshipUnsuccessfullyTest()
         {
             // null
             Championship newC = null;

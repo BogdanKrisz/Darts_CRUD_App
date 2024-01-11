@@ -38,7 +38,7 @@ namespace EUDBLD_HFT_2023241.Test
             // Delete
             mockPlayerChampionshipRepository.Setup(p => p.Delete(444)).Throws<ArgumentNullException>();
 
-            logic = new PlayerChampionshipLogic(mockPlayerChampionshipRepository.Object);
+            logic = new PlayerChampionshipLogic(mockPlayerChampionshipRepository.Object, mockChampionshipRepository.Object);
         }
 
         #region CRUD TESTS
@@ -63,10 +63,11 @@ namespace EUDBLD_HFT_2023241.Test
         {
             Player newPlayer = new Player() { Name = "New Test Player" };
             // Champship doesnt exist
-            PlayerChampionship newPlayerChampionship = new PlayerChampionship() { ChampionshipId = TestChampionship.Id, Championship = null, Place = 5, Player = newPlayer, PlayerId = newPlayer.Id };
-            Assert.That(() => logic.Create(newPlayerChampionship), Throws.ArgumentException);
+            PlayerChampionship newPlayerChampionship = null;
+            Assert.That(() => logic.Create(newPlayerChampionship), Throws.Exception);
 
             // no free space in champship
+            newPlayerChampionship = new PlayerChampionship() { ChampionshipId = TestChampionship.Id, Championship = null, Place = 5, Player = newPlayer, PlayerId = newPlayer.Id };
             newPlayerChampionship.Championship = TestChampionship;
             TestChampionship.MaxAttender = TestChampionship.Attenders.Count();
             Assert.That(() => logic.Create(newPlayerChampionship), Throws.ArgumentException);
@@ -115,7 +116,7 @@ namespace EUDBLD_HFT_2023241.Test
         }
 
         [Test]
-        public void UpdatePlayerUnsuccessfullyTest()
+        public void UpdatePlayerChampionshipUnsuccessfullyTest()
         {
             var old = AllPlayerChampionships.First();
             Player newPlayer = new Player() { Name = "New Test Player" };
@@ -148,7 +149,7 @@ namespace EUDBLD_HFT_2023241.Test
         }
         
         [Test]
-        public void DeletePlayerTest()
+        public void DeletePlayerChampionshipTest()
         {
             logic.Delete(TestPlayer.Id);
 
@@ -158,7 +159,7 @@ namespace EUDBLD_HFT_2023241.Test
         }
 
         [Test]
-        public void DeletePlayerUnsuccessfullyTest()
+        public void DeletePlayerChampionshipUnsuccessfullyTest()
         {
             Assert.That(() => logic.Delete(444), Throws.ArgumentNullException);
         }

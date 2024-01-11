@@ -42,5 +42,23 @@ namespace EUDBLD_HFT_2023241.Models
             Place = int.Parse(split[2]);
             Price = int.Parse(split[3]);
         }
+
+        public override bool Equals(object obj)
+        {
+            Prizes otherPrize = obj as Prizes;
+            if (otherPrize == null) return false;
+
+            Prizes thisPrize = this;
+
+            return thisPrize.Id == otherPrize.Id &&
+                    thisPrize.ChampionshipId == otherPrize.ChampionshipId &&
+                    thisPrize.Place == otherPrize.Place &&
+                    thisPrize.Price == otherPrize.Price;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, ChampionshipId, Place, Price);
+        }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EUDBLD_HFT_2023241.Repository")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da48c16163f508309fcc496f0c3c431ba6bcdd0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+459b72dec4399c2cffb5fde4cebcd2abb638357e")]
 [assembly: System.Reflection.AssemblyProductAttribute("EUDBLD_HFT_2023241.Repository")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EUDBLD_HFT_2023241.Repository")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -28,7 +28,7 @@ namespace EUDBLD_HFT_2023241.Logic
                 throw new ArgumentNullException("This championship doesn't exist!");
 
             if (item.Place <= 0 || item.Place > champship.MaxAttender)
-                throw new ArgumentNullException("This place doesn't exist in the championship!");
+                throw new ArgumentException("This place doesn't exist in the championship!");
 
             if (item.Price < 0)
                 throw new ArgumentException("The prize can't be negative!");
@@ -65,7 +65,7 @@ namespace EUDBLD_HFT_2023241.Logic
                 throw new ArgumentNullException("This championship doesn't exist!");
 
             if (item.Place <= 0 || item.Place > champship.MaxAttender)
-                throw new ArgumentNullException("This place doesn't exist in the championship!");
+                throw new ArgumentException("This place doesn't exist in the championship!");
 
             if (item.Price < 0)
                 throw new ArgumentException("The prize can't be negative!");

@@ -11,15 +11,17 @@ namespace EUDBLD_HFT_2023241.Logic
     public class PlayerChampionshipLogic : IPlayerChampionshipLogic
     {
         IRepository<PlayerChampionship> plChRepo;
+        IRepository<Championship> cRepo;
 
-        public PlayerChampionshipLogic(IRepository<PlayerChampionship> repo)
+        public PlayerChampionshipLogic(IRepository<PlayerChampionship> repo, IRepository<Championship> cRepo)
         {
             this.plChRepo = repo;
+            this.cRepo = cRepo;
         }
 
         public void Create(PlayerChampionship item)
         {
-            var champship = item.Championship;
+            var champship = cRepo.Read(item.ChampionshipId);
             if (champship == null)
                 throw new ArgumentException("This championship doesn't exist!");
 

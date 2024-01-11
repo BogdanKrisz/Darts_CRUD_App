@@ -275,6 +275,8 @@ namespace EUDBLD_HFT_2023241.Client
                     try { prize = playerLogic.GetPlayersPrizeForChampionship(current.Id, item); } catch {}
                     Console.WriteLine($"{name}:\t {place}.Place ({prize} pounds)");
                 }
+                if(participatedChampionships.Count == 0)
+                    Console.WriteLine("This player hasn't participate in any championship so far!");
             }
             Console.ReadLine();
         }
@@ -551,7 +553,7 @@ namespace EUDBLD_HFT_2023241.Client
             playerLogic = new PlayerLogic(playerRepo, playerChampionshipRepo);
             championshipLogic = new ChampionshipLogic(championshipRepo, playerChampionshipRepo);
             prizeLogic = new PrizeLogic(prizesRepo, championshipRepo);
-            playerChampionshipLogic = new PlayerChampionshipLogic(playerChampionshipRepo);
+            playerChampionshipLogic = new PlayerChampionshipLogic(playerChampionshipRepo, championshipRepo);
 
             var playerSubmenu = new ConsoleMenu(args, level: 1)
                 .Add("Create Player", () => Create("Players"))
