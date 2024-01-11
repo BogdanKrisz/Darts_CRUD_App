@@ -98,18 +98,17 @@ namespace EUDBLD_HFT_2023241.Logic
             return this.PlayersRankingMoney(playerId, DateTime.Now);
         }
 
-
         public int GetPlayersPrizeForChampionship(int playerId, Championship champship)
         {
             if (!champship.Attenders.Contains(playerRepo.Read(playerId)))
-                throw new ArgumentNullException("This player didn't participate in this championship!");
+                throw new ArgumentException("This player didn't participate in this championship!");
 
             var place = plChRepo.ReadAll().FirstOrDefault(plch => plch.PlayerId == playerId && plch.Championship == champship).Place;
 
             var prize = champship.Prizes.FirstOrDefault(p => p.Championship == champship && p.Place == place);
 
             if (prize == null)
-                throw new ArgumentNullException("This place doesn't have a prize set in the championship!");
+                throw new ArgumentException("This place doesn't have a prize set in the championship!");
 
             return prize.Price;
         }
@@ -118,22 +117,18 @@ namespace EUDBLD_HFT_2023241.Logic
         // Az átadott player -nek az átadott időtől számított előző 2évben résztvett tornáit adja vissza
         public IQueryable<Championship> PlayersRankingAttandences(int playerId, DateTime time)
         {
-            CheckPlayer(playerId);
             return playerRepo.Read(playerId).AttendedChampionships
                             .Where(ac => ac.EndDate > time.AddYears(-2) && ac.EndDate <= time)
                             .AsQueryable();
         }
         public IQueryable<Championship> PlayersRankingAttandences(int playerId)
         {
-            CheckPlayer(playerId);
             return PlayersRankingAttandences(playerId, DateTime.Now);
         }
 
         // Returns the place of the given player in the given championship
         public int GetPlayersPlaceInChampionship(int playerId, int championshipId)
         {
-            // Ha nem vett részt egy bajnokságban, akkor ne fusson hibára
-            CheckPlayer(playerId);
             return this.plChRepo.ReadAll()
                 .FirstOrDefault(t => t.PlayerId == playerId && t.ChampionshipId == championshipId)
                 .Place;
@@ -142,7 +137,6 @@ namespace EUDBLD_HFT_2023241.Logic
         // returns the rank of the given player at the given time
         public int GetPlayersRank(Player player, DateTime time)
         {
-            CheckPlayer(player);
             var playersWithMoney = GetPlayersInOrder(time);
             var players = playersWithMoney.Select(p => p.P).ToList();
             int i = 0;
@@ -157,7 +151,6 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public IQueryable<Championship> GetAttendedChampionships(int playerId)
         {
-            CheckPlayer(playerId);
             var result = playerRepo.Read(playerId).AttendedChampionships.AsQueryable();
             return result;
         }
@@ -169,6 +162,11 @@ namespace EUDBLD_HFT_2023241.Logic
                 throw new ArgumentException("This championship doesnt have any participants!");
 
             return result.AsQueryable();
+        }
+
+        public IQueryable<Player> GetChampionshipMissingPlayers(Championship champship)
+        {
+            return playerRepo.ReadAll().ToList().Except(champship.Attenders).AsQueryable();
         }
 
         // Returns the number of players given from a tournament in order starting with the 1st
@@ -183,26 +181,7 @@ namespace EUDBLD_HFT_2023241.Logic
             if (result.Count() < 1)
                 throw new ArgumentException("This championship doesnt have any participants!");
 
-            return result.Take(numberOfPlayers) ?? throw new ArgumentNullException("There is no Championship with this ID!");
-        }
-
-        public IQueryable<Player> GetChampionshipMissingPlayers(Championship champship)
-        {
-            return playerRepo.ReadAll().ToList().Except(champship.Attenders).AsQueryable();
-        }
-
-        // Check if the playid given is valid or not
-        bool CheckPlayer(int playerId)
-        {
-            if (playerRepo.Read(playerId) == null)
-                throw new ArgumentNullException("Nincs ilyen ID-val játékos!");
-            return true;
-        }
-        bool CheckPlayer(Player player)
-        {
-            if (playerRepo.Read(player.Id) == null)
-                throw new ArgumentNullException("Nincs ilyen ID-val játékos!");
-            return true;
+            return result.Take(numberOfPlayers) ?? throw new ArgumentException("There is no Championship with this ID!");
         }
     }
 }
