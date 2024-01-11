@@ -311,7 +311,7 @@ namespace EUDBLD_HFT_2023241.Client
                             managedPlayerSubMenu.Add(item.Name, (thisMenu) =>
                             {
                                 var newPlayerChampionship = new PlayerChampionship() { ChampionshipId = e.Id, PlayerId = item.Id, Place = GetIntFromUser("What place did this player finished at?: ") };
-                                rest.Post(newPlayerChampionship, "PlayerChampionship");
+                                rest.Post(newPlayerChampionship, "PlayerChampionship/Create");
                                 thisMenu.CloseMenu();
                                 Console.WriteLine("Player successfully added to the championship!");
                             });

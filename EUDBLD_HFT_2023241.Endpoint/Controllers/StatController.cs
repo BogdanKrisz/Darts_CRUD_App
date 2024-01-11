@@ -1,7 +1,6 @@
 ﻿using EUDBLD_HFT_2023241.Logic;
 using EUDBLD_HFT_2023241.Models;
 using Microsoft.AspNetCore.Mvc;
-using static EUDBLD_HFT_2023241.Logic.PlayerLogic;
 using System.Collections.Generic;
 using System.Linq;
 using System;
