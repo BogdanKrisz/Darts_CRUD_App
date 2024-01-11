@@ -17,7 +17,7 @@ namespace EUDBLD_HFT_2023241.Test
 {
     public class PlayerLogicTester : MyTestClass
     {
-        PlayerLogic pl;
+        PlayerLogic logic;
         Mock<IRepository<Player>> mockPlayerRepository;
         Mock<IRepository<PlayerChampionship>> mockPlayerChampionshipRepository;
 
@@ -41,7 +41,7 @@ namespace EUDBLD_HFT_2023241.Test
             // Delete
             mockPlayerRepository.Setup(p => p.Delete(444)).Throws<ArgumentNullException>();
 
-            pl = new PlayerLogic(mockPlayerRepository.Object, mockPlayerChampionshipRepository.Object);
+            logic = new PlayerLogic(mockPlayerRepository.Object, mockPlayerChampionshipRepository.Object);
         }
 
         #region CRUD TESTS
@@ -52,7 +52,7 @@ namespace EUDBLD_HFT_2023241.Test
             Player newPlayer = new Player() { Name = "New Player" };
 
             // ACT
-            pl.Create(newPlayer);
+            logic.Create(newPlayer);
 
             // ASSERT
             mockPlayerRepository.Verify(
@@ -65,7 +65,7 @@ namespace EUDBLD_HFT_2023241.Test
         {
             Player newPlayer = new Player() { Name = "Play" };
 
-            Assert.That(() => pl.Create(newPlayer), Throws.ArgumentException);
+            Assert.That(() => logic.Create(newPlayer), Throws.ArgumentException);
         }
 
         [TestCase(1, "PlayerA")]
@@ -74,20 +74,20 @@ namespace EUDBLD_HFT_2023241.Test
         [TestCase(4, "PlayerD")]
         public void ReadPlayer(int id, string expected)
         {
-            Assert.That(() => pl.Read(id).Name, Is.EqualTo(expected));
+            Assert.That(() => logic.Read(id).Name, Is.EqualTo(expected));
         }
 
         [Test]
         public void ReadPlayerUnsuccessfullyTest()
         {
-            Assert.That(() => pl.Read(444).Name, Throws.ArgumentNullException);
+            Assert.That(() => logic.Read(444).Name, Throws.ArgumentNullException);
         }
 
         [Test]
         public void UpdatePlayerTest()
         {
             TestPlayer.Name = "New Name";
-            pl.Update(TestPlayer);
+            logic.Update(TestPlayer);
 
             mockPlayerRepository.Verify(
                 p => p.Update(TestPlayer),
@@ -99,13 +99,13 @@ namespace EUDBLD_HFT_2023241.Test
         {
             TestPlayer.Name = "New";
 
-            Assert.That(() => pl.Update(TestPlayer), Throws.ArgumentException);
+            Assert.That(() => logic.Update(TestPlayer), Throws.ArgumentException);
         }
 
         [Test]
         public void DeletePlayerTest()
         {
-            pl.Delete(TestPlayer.Id);
+            logic.Delete(TestPlayer.Id);
 
             mockPlayerRepository.Verify(
                 p => p.Delete(TestPlayer.Id),
@@ -115,7 +115,7 @@ namespace EUDBLD_HFT_2023241.Test
         [Test]
         public void DeletePlayerUnsuccessfullyTest()
         {
-            Assert.That(() => pl.Delete(444), Throws.ArgumentNullException);
+            Assert.That(() => logic.Delete(444), Throws.ArgumentNullException);
         }
         #endregion
 
@@ -128,7 +128,7 @@ namespace EUDBLD_HFT_2023241.Test
             DateTime time = new DateTime(2023, 01, 04);
 
             // ACT
-            List<PlayerRank> playerRankResults = pl.GetPlayersInOrder(time).ToList();
+            List<PlayerRank> playerRankResults = logic.GetPlayersInOrder(time).ToList();
             List<Player> result = new List<Player>();
             foreach (var item in playerRankResults)
                 result.Add(item.P);
@@ -150,7 +150,7 @@ namespace EUDBLD_HFT_2023241.Test
             DateTime time = new DateTime(2023, 01, 04);
 
             // ACT
-            var result = pl.PlayersRankingMoney(TestPlayer.Id, time);
+            var result = logic.PlayersRankingMoney(TestPlayer.Id, time);
 
             // ASSERT
             Assert.That(result, Is.EqualTo(350000));
@@ -168,9 +168,9 @@ namespace EUDBLD_HFT_2023241.Test
                 new Prizes() { Championship = TestChampionship, ChampionshipId = TestChampionship.Id, Place = 4, Price = 100 }
             };
 
-            Assert.That(() => pl.GetPlayersPrizeForChampionship(AllPlayers[0].Id, TestChampionship), Is.EqualTo(100));
-            Assert.That(() => pl.GetPlayersPrizeForChampionship(AllPlayers[2].Id, TestChampionship), Is.EqualTo(500));
-            Assert.That(() => pl.GetPlayersPrizeForChampionship(AllPlayers[3].Id, TestChampionship), Is.EqualTo(1000));
+            Assert.That(() => logic.GetPlayersPrizeForChampionship(AllPlayers[0].Id, TestChampionship), Is.EqualTo(100));
+            Assert.That(() => logic.GetPlayersPrizeForChampionship(AllPlayers[2].Id, TestChampionship), Is.EqualTo(500));
+            Assert.That(() => logic.GetPlayersPrizeForChampionship(AllPlayers[3].Id, TestChampionship), Is.EqualTo(1000));
         }
 
         [Test]
@@ -187,9 +187,9 @@ namespace EUDBLD_HFT_2023241.Test
             Player newAttender = new Player() { Name = "New Test Player" };
 
             // Didnt participate in championship
-            Assert.That(() => pl.GetPlayersPrizeForChampionship(newAttender.Id, TestChampionship), Throws.ArgumentException);
+            Assert.That(() => logic.GetPlayersPrizeForChampionship(newAttender.Id, TestChampionship), Throws.ArgumentException);
             // Price wasn't set for that place
-            Assert.That(() => pl.GetPlayersPrizeForChampionship(AllPlayers[2].Id, TestChampionship), Throws.ArgumentException);
+            Assert.That(() => logic.GetPlayersPrizeForChampionship(AllPlayers[2].Id, TestChampionship), Throws.ArgumentException);
         }
 
         [Test]
@@ -209,21 +209,21 @@ namespace EUDBLD_HFT_2023241.Test
                 AllChampionships[0]
             };
             // ACT
-            var resultOne = pl.PlayersRankingAttandences(TestPlayer.Id, timeOne).ToList();
-            var resultTwo = pl.PlayersRankingAttandences(TestPlayer.Id, timeTwo).ToList();
+            var resultOne = logic.PlayersRankingAttandences(TestPlayer.Id, timeOne).ToList();
+            var resultTwo = logic.PlayersRankingAttandences(TestPlayer.Id, timeTwo).ToList();
 
             // ASSERT
             Assert.AreEqual(expectedOne, resultOne);
             Assert.AreEqual(expectedTwo, resultTwo);
 
             AllChampionships.RemoveAt(0); AllChampionships.RemoveAt(0);
-            Assert.AreEqual(pl.PlayersRankingAttandences(TestPlayer.Id), AllChampionships);
+            Assert.AreEqual(logic.PlayersRankingAttandences(TestPlayer.Id), AllChampionships);
         }
 
         [Test]
         public void GetPlayersPlaceInChampionshipTest()
         {
-            Assert.That(pl.GetPlayersPlaceInChampionship(TestPlayer.Id, TestChampionship.Id), Is.EqualTo(4));
+            Assert.That(logic.GetPlayersPlaceInChampionship(TestPlayer.Id, TestChampionship.Id), Is.EqualTo(4));
         }
 
         [Test]
@@ -233,7 +233,7 @@ namespace EUDBLD_HFT_2023241.Test
             DateTime time = new DateTime(2023, 01, 04);
 
             // ACT
-            Assert.That(pl.GetPlayersRank(TestPlayer, time), Is.EqualTo(2));
+            Assert.That(logic.GetPlayersRank(TestPlayer, time), Is.EqualTo(2));
         }
 
         [Test]
@@ -244,14 +244,14 @@ namespace EUDBLD_HFT_2023241.Test
             attandedChampships.Add(new Championship("1#PDC World Darts Championship 23#2022.12.15.#2023.01.03.#96#2500000"));
             TestPlayer.AttendedChampionships = attandedChampships;
 
-            var result = pl.GetAttendedChampionships(TestPlayer.Id);
+            var result = logic.GetAttendedChampionships(TestPlayer.Id);
             Assert.AreEqual(result, attandedChampships);
         }
 
         [Test]
         public void GetAttendedChampionshipsUnsuccessfullyTest()
         {
-            Assert.That(() => pl.GetAttendedChampionships(444), Throws.ArgumentNullException);
+            Assert.That(() => logic.GetAttendedChampionships(444), Throws.ArgumentNullException);
         }
 
         [Test]
@@ -265,7 +265,7 @@ namespace EUDBLD_HFT_2023241.Test
             };
             TestChampionship.Attenders = attenders;
 
-            var result = pl.GetChampionshipAttenders(TestChampionship);
+            var result = logic.GetChampionshipAttenders(TestChampionship);
 
             Assert.AreEqual(attenders, result);
         }
@@ -276,14 +276,14 @@ namespace EUDBLD_HFT_2023241.Test
             List<Player> attenders = new List<Player>();
             TestChampionship.Attenders = attenders;
 
-            Assert.That(() => pl.GetChampionshipAttenders(TestChampionship), Throws.ArgumentException);
+            Assert.That(() => logic.GetChampionshipAttenders(TestChampionship), Throws.ArgumentException);
         }
 
         [Test]
         public void GetChampionshipMissingPlayersTest()
         {
             // ARRANGE
-            var AllPlayers = pl.ReadAll().ToList();
+            var AllPlayers = logic.ReadAll().ToList();
 
             List<Player> attendedPlayers = new List<Player>();
             attendedPlayers.Add(AllPlayers[0]);
@@ -296,7 +296,7 @@ namespace EUDBLD_HFT_2023241.Test
             expected.Add(AllPlayers[2]);
 
             // ACT
-            var result = pl.GetChampionshipMissingPlayers(ch).ToList();
+            var result = logic.GetChampionshipMissingPlayers(ch).ToList();
 
             // ASSERT
             Assert.AreEqual(expected, result);
@@ -306,7 +306,7 @@ namespace EUDBLD_HFT_2023241.Test
         public void GetTopPlayersFromTheChampionshipTest()
         {
             // ARRANGE
-            List<Player> attenders = pl.ReadAll().ToList();
+            List<Player> attenders = logic.ReadAll().ToList();
             Championship ch = new Championship() { Attenders = attenders, Id = 1 };
 
             List<Player> expected = new List<Player>()
@@ -317,7 +317,7 @@ namespace EUDBLD_HFT_2023241.Test
             };
 
             // ACT
-            var result = pl.GetTopPlayersFromChampionship(ch.Id, 3).ToList();
+            var result = logic.GetTopPlayersFromChampionship(ch.Id, 3).ToList();
 
             // ASSERT
             Assert.AreEqual(expected, result);

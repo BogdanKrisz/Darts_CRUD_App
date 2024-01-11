@@ -21,6 +21,12 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Create(Championship item)
         {
+            if (item == null)
+                throw new ArgumentNullException("This championship doesn't exist!");
+
+            if (item.Name.Length < 5)
+                throw new ArgumentException("The championship's name is too short!");
+
             if (item.MaxAttender < 2)
                 throw new ArgumentException("The tournament has too few max attenders!");
 
@@ -50,6 +56,12 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Update(Championship item)
         {
+            if (item == null)
+                throw new ArgumentNullException("This championship doesn't exist!");
+
+            if (item.Name.Length < 5)
+                throw new ArgumentException("The championship's name is too short!");
+
             if (item.MaxAttender < 2)
                 throw new ArgumentException("The tournament has too few max attenders!");
 

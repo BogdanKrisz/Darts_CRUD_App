@@ -551,7 +551,7 @@ namespace EUDBLD_HFT_2023241.Client
             playerLogic = new PlayerLogic(playerRepo, playerChampionshipRepo);
             championshipLogic = new ChampionshipLogic(championshipRepo, playerChampionshipRepo);
             prizeLogic = new PrizeLogic(prizesRepo, championshipRepo);
-            playerChampionshipLogic = new PlayerChampionshipLogic(playerChampionshipRepo, championshipRepo);
+            playerChampionshipLogic = new PlayerChampionshipLogic(playerChampionshipRepo);
 
             var playerSubmenu = new ConsoleMenu(args, level: 1)
                 .Add("Create Player", () => Create("Players"))

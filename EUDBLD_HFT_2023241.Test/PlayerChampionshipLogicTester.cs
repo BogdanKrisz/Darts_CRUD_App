@@ -13,7 +13,7 @@ namespace EUDBLD_HFT_2023241.Test
 {
     public class PlayerChampionshipLogicTester : MyTestClass
     {
-        PlayerChampionshipLogic pl;
+        PlayerChampionshipLogic logic;
         Mock<IRepository<Championship>> mockChampionshipRepository;
         Mock<IRepository<PlayerChampionship>> mockPlayerChampionshipRepository;
 
@@ -38,7 +38,7 @@ namespace EUDBLD_HFT_2023241.Test
             // Delete
             mockPlayerChampionshipRepository.Setup(p => p.Delete(444)).Throws<ArgumentNullException>();
 
-            pl = new PlayerChampionshipLogic(mockPlayerChampionshipRepository.Object, mockChampionshipRepository.Object);
+            logic = new PlayerChampionshipLogic(mockPlayerChampionshipRepository.Object);
         }
 
         #region CRUD TESTS
@@ -50,7 +50,7 @@ namespace EUDBLD_HFT_2023241.Test
             PlayerChampionship newPlayerChampionship = new PlayerChampionship() { ChampionshipId = TestChampionship.Id, Championship = TestChampionship, Place = 5, Player = newPlayer, PlayerId = newPlayer.Id };
 
             // ACT
-            pl.Create(newPlayerChampionship);
+            logic.Create(newPlayerChampionship);
 
             // ASSERT
             mockPlayerChampionshipRepository.Verify(
@@ -64,43 +64,42 @@ namespace EUDBLD_HFT_2023241.Test
             Player newPlayer = new Player() { Name = "New Test Player" };
             // Champship doesnt exist
             PlayerChampionship newPlayerChampionship = new PlayerChampionship() { ChampionshipId = TestChampionship.Id, Championship = null, Place = 5, Player = newPlayer, PlayerId = newPlayer.Id };
-            Assert.That(() => pl.Create(newPlayerChampionship), Throws.ArgumentException);
+            Assert.That(() => logic.Create(newPlayerChampionship), Throws.ArgumentException);
 
             // no free space in champship
             newPlayerChampionship.Championship = TestChampionship;
             TestChampionship.MaxAttender = TestChampionship.Attenders.Count();
-            Assert.That(() => pl.Create(newPlayerChampionship), Throws.ArgumentException);
+            Assert.That(() => logic.Create(newPlayerChampionship), Throws.ArgumentException);
 
             // player is already in the champship
             //if (plChRepo.ReadAll().FirstOrDefault(t => t.Championship == champship && t.PlayerId == item.PlayerId) != null)
             TestChampionship.MaxAttender = 100;
             newPlayerChampionship = AllPlayerChampionships.First();
-            Assert.That(() => pl.Create(newPlayerChampionship), Throws.ArgumentException);
+            Assert.That(() => logic.Create(newPlayerChampionship), Throws.ArgumentException);
 
             // place is negative
             newPlayerChampionship = new PlayerChampionship() { ChampionshipId = TestChampionship.Id, Championship = TestChampionship, Place = 5, Player = newPlayer, PlayerId = newPlayer.Id };
             newPlayerChampionship.Place = -1;
-            Assert.That(() => pl.Create(newPlayerChampionship), Throws.ArgumentException);
+            Assert.That(() => logic.Create(newPlayerChampionship), Throws.ArgumentException);
 
             // place is bigger than maxattanders
             newPlayerChampionship.Place = 101;
-            Assert.That(() => pl.Create(newPlayerChampionship), Throws.ArgumentException);
+            Assert.That(() => logic.Create(newPlayerChampionship), Throws.ArgumentException);
         }
 
-        
         [TestCase(1)]
         [TestCase(2)]
         [TestCase(3)]
         [TestCase(4)]
         public void ReadPlayerChampionship(int id)
         {
-            Assert.That(() => pl.Read(id), Is.EqualTo(AllPlayerChampionships[0]));
+            Assert.That(() => logic.Read(id), Is.EqualTo(AllPlayerChampionships[0]));
         }
 
         [Test]
         public void ReadPlayerChampionshipUnsuccessfullyTest()
         {
-            Assert.That(() => pl.Read(444), Throws.ArgumentNullException);
+            Assert.That(() => logic.Read(444), Throws.ArgumentNullException);
         }
         
         [Test]
@@ -108,7 +107,7 @@ namespace EUDBLD_HFT_2023241.Test
         {
             var old = AllPlayerChampionships.First();
             old.Place = 8;
-            pl.Update(old);
+            logic.Update(old);
 
             mockPlayerChampionshipRepository.Verify(
                 p => p.Update(old),
@@ -123,12 +122,12 @@ namespace EUDBLD_HFT_2023241.Test
 
             // Champship doesnt exist
             old = new PlayerChampionship() { ChampionshipId = TestChampionship.Id, Championship = null, Place = 5, Player = newPlayer, PlayerId = newPlayer.Id };
-            Assert.That(() => pl.Update(old), Throws.ArgumentException);
+            Assert.That(() => logic.Update(old), Throws.ArgumentException);
             
             // no free space in champship
             old.Championship = TestChampionship;
             TestChampionship.MaxAttender = TestChampionship.Attenders.Count();
-            Assert.That(() => pl.Update(old), Throws.ArgumentException);
+            Assert.That(() => logic.Update(old), Throws.ArgumentException);
 
             // player is already in the champship
             //if (plChRepo.ReadAll().FirstOrDefault(t => t.Championship == champship && t.PlayerId == item.PlayerId) != null)
@@ -136,22 +135,22 @@ namespace EUDBLD_HFT_2023241.Test
             old = AllPlayerChampionships.First();
             old.Championship = AllPlayerChampionships[2].Championship;
             old.PlayerId = AllPlayerChampionships[2].PlayerId;
-            Assert.That(() => pl.Update(old), Throws.ArgumentException);
+            Assert.That(() => logic.Update(old), Throws.ArgumentException);
 
             // place is negative
             old = new PlayerChampionship() { ChampionshipId = TestChampionship.Id, Championship = TestChampionship, Place = 5, Player = newPlayer, PlayerId = newPlayer.Id };
             old.Place = -1;
-            Assert.That(() => pl.Update(old), Throws.ArgumentException);
+            Assert.That(() => logic.Update(old), Throws.ArgumentException);
 
             // place is bigger than maxattanders
             old.Place = 101;
-            Assert.That(() => pl.Update(old), Throws.ArgumentException);
+            Assert.That(() => logic.Update(old), Throws.ArgumentException);
         }
         
         [Test]
         public void DeletePlayerTest()
         {
-            pl.Delete(TestPlayer.Id);
+            logic.Delete(TestPlayer.Id);
 
             mockPlayerChampionshipRepository.Verify(
                 p => p.Delete(TestPlayer.Id),
@@ -161,7 +160,7 @@ namespace EUDBLD_HFT_2023241.Test
         [Test]
         public void DeletePlayerUnsuccessfullyTest()
         {
-            Assert.That(() => pl.Delete(444), Throws.ArgumentNullException);
+            Assert.That(() => logic.Delete(444), Throws.ArgumentNullException);
         }
         #endregion
 
@@ -171,13 +170,13 @@ namespace EUDBLD_HFT_2023241.Test
         {
             var plCh = AllPlayerChampionships.First();
             var expected = plCh.Id;
-            Assert.That(() => pl.GetId(1, 1), Is.EqualTo(expected));
+            Assert.That(() => logic.GetId(1, 1), Is.EqualTo(expected));
         }
 
         [Test]
         public void GetIdUnsuccessfullyTest()
         {
-            Assert.That(() => pl.GetId(44,44), Throws.Exception);
+            Assert.That(() => logic.GetId(44,44), Throws.Exception);
         }
     }
 }

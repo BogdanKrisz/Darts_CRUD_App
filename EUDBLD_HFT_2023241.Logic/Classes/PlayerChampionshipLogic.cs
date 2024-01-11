@@ -11,12 +11,10 @@ namespace EUDBLD_HFT_2023241.Logic
     public class PlayerChampionshipLogic : IPlayerChampionshipLogic
     {
         IRepository<PlayerChampionship> plChRepo;
-        IRepository<Championship> cRepo;
 
-        public PlayerChampionshipLogic(IRepository<PlayerChampionship> repo, IRepository<Championship> cRepo)
+        public PlayerChampionshipLogic(IRepository<PlayerChampionship> repo)
         {
             this.plChRepo = repo;
-            this.cRepo = cRepo;
         }
 
         public void Create(PlayerChampionship item)
