@@ -1,14 +1,13 @@
-﻿using EUDBLD_HFT_2023241.Models;
+﻿using EUDBLD_HFT_2023241.Logic.Interfaces;
+using EUDBLD_HFT_2023241.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace EUDBLD_HFT_2023241.Logic
 {
-    public interface IPlayerLogic
+    public interface IPlayerLogic : ILogic<Player>
     {
-        void Create(Player item);
-        void Delete(int id);
         IQueryable<Championship> GetAttendedChampionships(int playerId);
         IQueryable<Player> GetChampionshipAttenders(int champshipId);
         IQueryable<Player> GetChampionshipMissingPlayers(int champshipId);
@@ -23,8 +22,5 @@ namespace EUDBLD_HFT_2023241.Logic
         IQueryable<Championship> PlayersRankingAttandences(int playerId, DateTime time);
         int PlayersRankingMoney(int playerId);
         int PlayersRankingMoney(int playerId, DateTime time);
-        Player Read(int id);
-        IQueryable<Player> ReadAll();
-        void Update(Player item);
     }
 }
