@@ -21,15 +21,17 @@ namespace EUDBLD_HFT_2023241.Models
         [NotMapped]
         public virtual Player Player { get; set; }
 
+        [Range(0, int.MaxValue)]
         public int PlayerId { get; set; }
 
         [JsonIgnore]
         [NotMapped]
         public virtual Championship Championship { get; set; }
 
+        [Range(0, int.MaxValue)]
         public int ChampionshipId { get; set; }
 
-        [MaxLength(50)]
+        [Range(0, int.MaxValue)]
         [Required]
         public int Place { get; set; }
 

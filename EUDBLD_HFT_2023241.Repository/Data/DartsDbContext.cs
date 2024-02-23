@@ -34,7 +34,6 @@ namespace EUDBLD_HFT_2023241.Repository.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
             modelBuilder.Entity<Prizes>(x => x
             .HasOne(x => x.Championship)
             .WithMany(x => x.Prizes)

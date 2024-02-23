@@ -10,10 +10,10 @@ P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Re
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Repository\obj\Debug\net5.0\EUDBLD_HFT_2023241.Repository.AssemblyInfoInputs.cache
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Repository\obj\Debug\net5.0\EUDBLD_HFT_2023241.Repository.AssemblyInfo.cs
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Repository\obj\Debug\net5.0\EUDBLD_HFT_2023241.Repository.csproj.CoreCompileInputs.cache
-P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Repository\obj\Debug\net5.0\EUDBLD_HFT_2023241.Repository.csproj.CopyComplete
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Repository\obj\Debug\net5.0\EUDBLD_HFT_2023241.Repository.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Repository\obj\Debug\net5.0\refint\EUDBLD_HFT_2023241.Repository.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Repository\obj\Debug\net5.0\EUDBLD_HFT_2023241.Repository.pdb
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Repository\obj\Debug\net5.0\EUDBLD_HFT_2023241.Repository.genruntimeconfig.cache
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Repository\obj\Debug\net5.0\ref\EUDBLD_HFT_2023241.Repository.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Repository\obj\Debug\net5.0\EUDBLD_HFT_2023241.Repository.sourcelink.json
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Repository\obj\Debug\net5.0\EUDBLD_H.DEFE9EC9.Up2Date

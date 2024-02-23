@@ -12,7 +12,6 @@ P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Te
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Test\obj\Debug\net5.0\EUDBLD_HFT_2023241.Test.AssemblyInfoInputs.cache
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Test\obj\Debug\net5.0\EUDBLD_HFT_2023241.Test.AssemblyInfo.cs
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Test\obj\Debug\net5.0\EUDBLD_HFT_2023241.Test.csproj.CoreCompileInputs.cache
-P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Test\obj\Debug\net5.0\EUDBLD_HFT_2023241.Test.csproj.CopyComplete
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Test\obj\Debug\net5.0\EUDBLD_HFT_2023241.Test.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Test\obj\Debug\net5.0\refint\EUDBLD_HFT_2023241.Test.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Test\obj\Debug\net5.0\EUDBLD_HFT_2023241.Test.pdb
@@ -122,3 +121,4 @@ P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Te
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Test\bin\Debug\net5.0\Moq.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Test\bin\Debug\net5.0\System.Diagnostics.EventLog.dll
 P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Test\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.EventLog.dll
+P:\oe_orai\halado fejlesztesi technikak\EUDBLD_HFT_2023241\EUDBLD_HFT_2023241.Test\obj\Debug\net5.0\EUDBLD_H.DEF2AB41.Up2Date

@@ -27,6 +27,7 @@ namespace EUDBLD_HFT_2023241.Models
         [Required]
         public DateTime EndDate { get; set; }
 
+        [Range(0, int.MaxValue)]
         public int MaxAttender { get; set; }
 
         [NotMapped]
@@ -35,6 +36,7 @@ namespace EUDBLD_HFT_2023241.Models
         [NotMapped]
         public virtual ICollection<Prizes> Prizes { get; set; }
 
+        [Range(0, int.MaxValue)]
         public int PrizePool { get; set; }
 
         public Championship()
