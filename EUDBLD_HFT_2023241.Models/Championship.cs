@@ -37,7 +37,6 @@ namespace EUDBLD_HFT_2023241.Models
         public virtual ICollection<Prizes> Prizes { get; set; }
 
         [Range(0, int.MaxValue)]
-        [Required]
         public int PrizePool { get; set; }
 
         public Championship()

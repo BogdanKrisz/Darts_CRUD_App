@@ -108,13 +108,14 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public int GetPlayersPrizeForChampionship(int playerId, int champshipId)
         {
+            int place = plChRepo.ReadAll().FirstOrDefault(pc => pc.PlayerId == playerId && pc.ChampionshipId == champshipId).Place;
             Championship champship = cRepo.Read(champshipId);
+
             if (!champship.Attenders.Contains(playerRepo.Read(playerId)))
                 throw new ArgumentException("This player didn't participate in this championship!");
 
-            var place = plChRepo.ReadAll().FirstOrDefault(plch => plch.PlayerId == playerId && plch.Championship == champship).Place;
 
-            var prize = champship.Prizes.FirstOrDefault(p => p.Championship == champship && p.Place == place);
+            var prize = champship.Prizes.FirstOrDefault(p => p.ChampionshipId == champshipId && p.Place == place);
 
             if (prize == null)
                 throw new ArgumentException("This place doesn't have a prize set in the championship!");
@@ -182,23 +183,17 @@ namespace EUDBLD_HFT_2023241.Logic
 
         // Returns the number of players given from a tournament in order starting with the 1st
         // Visszaadja a megadott számú játékost a tornán az elsőtől kezdve lefele
-        public IEnumerable<Player> GetTopPlayersFromChampionship(int championshipId, int maxPlace)
+        public IEnumerable<Player> GetTopPlayersFromChampionship(int championshipId, int numberOfPlayers)
         {
-            var championship = cRepo.Read(championshipId);
-
-            if (championship.Attenders.Count == 0)
-                throw new ArgumentException("This championship doesnt have any participants!");
-
             var result = plChRepo.ReadAll()
-                        .Where(t => t.ChampionshipId == championshipId && t.Place <= maxPlace)
+                        .Where(t => t.ChampionshipId == championshipId && t.Place <= numberOfPlayers)
                         .OrderBy(t => t.Place)
                         .Select(t => t.Player);
 
             if (result.Count() < 1)
-                throw new ArgumentException($"There is no player, who got better result than '{maxPlace}'.place");
-            
+                throw new ArgumentException("This championship doesnt have any participants!");
 
-            return result;
+            return result.Take(numberOfPlayers) ?? throw new ArgumentException("There is no Championship with this ID!");
         }
     }
 }

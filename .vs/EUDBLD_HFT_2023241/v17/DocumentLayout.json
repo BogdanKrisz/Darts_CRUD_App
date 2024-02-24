@@ -7,16 +7,12 @@
       "RelativeMoniker": "D:0:0:{ABF08B65-BA9F-4F77-BFF8-7BE302A78B65}|EUDBLD_HFT_2023241.Client\\EUDBLD_HFT_2023241.Client.csproj|solutionrelative:eudbld_hft_2023241.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.logic\\classes\\prizelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|solutionrelative:eudbld_hft_2023241.logic\\classes\\prizelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.logic\\classes\\playerlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|solutionrelative:eudbld_hft_2023241.logic\\classes\\playerlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{827CEE61-A3EE-49A0-8830-9EE0991A46CF}|EUDBLD_HFT_2023241.Endpoint\\EUDBLD_HFT_2023241.Endpoint.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.endpoint\\controllers\\prizescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{827CEE61-A3EE-49A0-8830-9EE0991A46CF}|EUDBLD_HFT_2023241.Endpoint\\EUDBLD_HFT_2023241.Endpoint.csproj|solutionrelative:eudbld_hft_2023241.endpoint\\controllers\\prizescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{03EA3795-3AAA-4F74-8A08-55378481DBFE}|EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.models\\prizes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03EA3795-3AAA-4F74-8A08-55378481DBFE}|EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj|solutionrelative:eudbld_hft_2023241.models\\prizes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.logic\\classes\\playerchampionshiplogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|solutionrelative:eudbld_hft_2023241.logic\\classes\\playerchampionshiplogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +22,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlayerChampionshipLogic.cs",
+              "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs",
+              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs",
+              "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs",
+              "RelativeToolTip": "EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-24T03:29:56.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerLogic.cs",
+              "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PlayerLogic.cs",
+              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Logic\\Classes\\PlayerLogic.cs",
+              "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PlayerLogic.cs",
+              "RelativeToolTip": "EUDBLD_HFT_2023241.Logic\\Classes\\PlayerLogic.cs",
+              "ViewState": "AQIAAJMAAAAAAAAAAAAswFwAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-24T02:23:27.271Z"
             },
             {
               "$type": "Document",
@@ -40,48 +60,9 @@
               "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Client\\Program.cs",
               "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Client\\Program.cs",
               "RelativeToolTip": "EUDBLD_HFT_2023241.Client\\Program.cs",
-              "ViewState": "AQIAAGkAAAAAAAAAAAAAACIBAABNAAAA",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAswFsAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-24T01:05:16.758Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PrizeLogic.cs",
-              "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PrizeLogic.cs",
-              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Logic\\Classes\\PrizeLogic.cs",
-              "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PrizeLogic.cs",
-              "RelativeToolTip": "EUDBLD_HFT_2023241.Logic\\Classes\\PrizeLogic.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-24T01:05:13.629Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Prizes.cs",
-              "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Models\\Prizes.cs",
-              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Models\\Prizes.cs",
-              "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Models\\Prizes.cs",
-              "RelativeToolTip": "EUDBLD_HFT_2023241.Models\\Prizes.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAADwAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-24T00:42:29.431Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PrizesController.cs",
-              "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Endpoint\\Controllers\\PrizesController.cs",
-              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Endpoint\\Controllers\\PrizesController.cs",
-              "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Endpoint\\Controllers\\PrizesController.cs",
-              "RelativeToolTip": "EUDBLD_HFT_2023241.Endpoint\\Controllers\\PrizesController.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAACkAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-11T13:57:49.37Z",
+              "WhenOpened": "2024-01-11T09:22:35.819Z",
               "EditorCaption": ""
             }
           ]

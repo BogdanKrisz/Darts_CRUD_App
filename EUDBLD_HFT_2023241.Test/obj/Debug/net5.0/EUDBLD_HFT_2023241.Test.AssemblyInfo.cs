@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EUDBLD_HFT_2023241.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed8b84fe6d1ebdb5a56dc9056efa00ba33736fac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d08ab5698a5ac6a35de09325cb5bae09329c1af1")]
 [assembly: System.Reflection.AssemblyProductAttribute("EUDBLD_HFT_2023241.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EUDBLD_HFT_2023241.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

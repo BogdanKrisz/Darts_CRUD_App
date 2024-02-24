@@ -34,8 +34,8 @@ namespace EUDBLD_HFT_2023241.Logic
             if (item.Place > champship.MaxAttender || item.Place < 0)
                 throw new ArgumentException("This place is not valid!");
 
-            if (!validNewPlace(item.ChampionshipId, item.Place))
-                throw new ArgumentException($"There are too many players already in this place {item.Place}");
+            if (!ValidNewPlace(item.ChampionshipId, item.Place))
+                throw new ArgumentException($"There is no more space in this tournament at the {item.Place}. place");
 
             this.plChRepo.Create(item);
         }
@@ -57,8 +57,7 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Update(PlayerChampionship item)
         {
-            var champship = cRepo.Read(item.ChampionshipId);
-
+            var champship = item.Championship;
             if (champship == null)
                 throw new ArgumentException("This championship doesn't exist!");
 
@@ -71,8 +70,8 @@ namespace EUDBLD_HFT_2023241.Logic
             if (item.Place > champship.MaxAttender || item.Place < 0)
                 throw new ArgumentException("This place is not valid!");
 
-            if (!validNewPlace(item.ChampionshipId, item.Place))
-                throw new ArgumentException($"There are too many players already in this place {item.Place}");
+            if (!ValidNewPlace(item.ChampionshipId, item.Place))
+                throw new ArgumentException($"There is no more space in this tournament at the {item.Place}. place");
 
             this.plChRepo.Update(item);
         }
@@ -84,16 +83,15 @@ namespace EUDBLD_HFT_2023241.Logic
             return this.plChRepo.ReadAll().FirstOrDefault(t => t.ChampionshipId == ChampionshipId && t.PlayerId == playerId).Id;
         }
 
-        // van-e még a bajnokságban a paraméterként megadott szabad helyezés (pl. 1db 1. hely van, de van 4db 5. hely (5-8), )
-        bool validNewPlace(int championshipId, int place)
+        // determins if there is still an open spot on the given place in the given championship 
+        bool ValidNewPlace(int championshipId, int place)
         {
-            int numOfPlayersInThatPlace = ReadAll().Where(pc => pc.ChampionshipId == championshipId && pc.Place == place).Count();
+            int numOfPlayersOnGivenPlace = ReadAll().Select(pc => pc.ChampionshipId == championshipId && pc.Place == place).Count();
             bool valid = false;
-            // 1db 1., 1db 2., 2db 3., 4db 5., 8db 9., 16db 17., 32db 33., ....
-            if (((place == 1 || place == 2) && numOfPlayersInThatPlace == 0) || (numOfPlayersInThatPlace < place - 1))
-            {
+            // 1db 1., 1db 2, 2db 3., 4db 5., 8db 9., 16db 17., ...
+            if (((place == 1 || place == 2) && numOfPlayersOnGivenPlace == 0) || (place > 2 && numOfPlayersOnGivenPlace < place - 1))
                 valid = true;
-            }
+
             return valid;
         }
     }
