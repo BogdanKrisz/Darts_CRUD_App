@@ -21,12 +21,15 @@ namespace EUDBLD_HFT_2023241.Models
         [NotMapped]
         public virtual Championship Championship { get; set; }
 
+        [Range(0, int.MaxValue)]
+        [Required]
         public int ChampionshipId { get; set; }
 
-        [Range(0,1000)]
+        [Range(0, int.MaxValue)]
         [Required]
         public int Place {  get; set; }
 
+        [Range(0, int.MaxValue)]
         [Required]
         public int Price { get; set; }
 
@@ -47,15 +50,15 @@ namespace EUDBLD_HFT_2023241.Models
 
         public override bool Equals(object obj)
         {
-            Prizes otherPrize = obj as Prizes;
-            if (otherPrize == null) return false;
+            Prizes other = obj as Prizes;
+            if (other == null) return false;
 
-            Prizes thisPrize = this;
+            Prizes current = this;
 
-            return thisPrize.Id == otherPrize.Id &&
-                    thisPrize.ChampionshipId == otherPrize.ChampionshipId &&
-                    thisPrize.Place == otherPrize.Place &&
-                    thisPrize.Price == otherPrize.Price;
+            return current.Id == other.Id &&
+                    current.ChampionshipId == other.ChampionshipId &&
+                    current.Place == other.Place &&
+                    current.Price == other.Price;
         }
 
         public override int GetHashCode()

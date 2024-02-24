@@ -22,6 +22,7 @@ namespace EUDBLD_HFT_2023241.Models
         public virtual Player Player { get; set; }
 
         [Range(0, int.MaxValue)]
+        [Required]
         public int PlayerId { get; set; }
 
         [JsonIgnore]
@@ -29,6 +30,7 @@ namespace EUDBLD_HFT_2023241.Models
         public virtual Championship Championship { get; set; }
 
         [Range(0, int.MaxValue)]
+        [Required]
         public int ChampionshipId { get; set; }
 
         [Range(0, int.MaxValue)]
@@ -47,6 +49,24 @@ namespace EUDBLD_HFT_2023241.Models
             PlayerId = int.Parse(split[1]);
             ChampionshipId = int.Parse(split[2]);
             Place = int.Parse(split[3]);
+        }
+
+        public override bool Equals(object obj)
+        {
+            PlayerChampionship other = obj as PlayerChampionship;
+                if (other == null) return false;
+            
+            PlayerChampionship current = this;
+
+            return current.Id == other.Id &&
+                current.PlayerId == other.PlayerId &&
+                current.ChampionshipId == other.ChampionshipId &&
+                current.Place == other.Place;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, PlayerId, ChampionshipId, Place);
         }
     }
 }

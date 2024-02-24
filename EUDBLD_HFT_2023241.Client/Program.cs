@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Channels;
 
@@ -14,12 +15,6 @@ namespace EUDBLD_HFT_2023241.Client
         static RestService rest;
 
         static ConsoleMenu baseMenu;
-
-        // Prizes update
-        // Add Players
-        // update players
-        // remove player
-
 
         static void Create(string entity)
         {
@@ -77,7 +72,7 @@ namespace EUDBLD_HFT_2023241.Client
                     foreach (var item in playersInOrder)
                     {
                         int rankingMoney = rest.GetSingle<int>($"Stat/PlayersRankingMoney?playerId={item.Id}");
-                        Console.WriteLine($"Rank {++i}: {item.Name}\t\t({rankingMoney} Pounds)");
+                        Console.WriteLine($"Rank {++i}: {item.Name}\t\t\t\t\t({rankingMoney} Pounds)");
                     }
                 }
                 catch (Exception exc)
@@ -97,7 +92,7 @@ namespace EUDBLD_HFT_2023241.Client
                     foreach (var item in playersInOrder)
                     {
                         int rankingMoney = rest.GetSingle<int>($"Stat/PlayersRankingMoney?playerId={item.Id}");
-                        Console.WriteLine($"Rank {++i}: {item.Name}\t\t({rankingMoney} Pounds)");
+                        Console.WriteLine($"Rank {++i}: {item.Name}\t\t\t\t\t({rankingMoney} Pounds)");
                     }
                 }
                 catch (Exception exc)
@@ -191,8 +186,8 @@ namespace EUDBLD_HFT_2023241.Client
             {
                 try
                 {
-                    int numOfPlayers = 4;
-                    List<Player> topPlayers = rest.Get<Player>($"Stat/GetTopPlayersFromChampionship?championshipId={e.Id}&numberOfPlayers={numOfPlayers}");
+                    int topPlaces = 4;
+                    List<Player> topPlayers = rest.Get<Player>($"Stat/GetTopPlayersFromChampionship?championshipId={e.Id}&numberOfPlayers={topPlaces}");
                     for (int i = 0; i < topPlayers.Count; i++)
                     {
                         int place = rest.GetSingle<int>($"Stat/GetPlayersPlaceInChampionship?playerId={topPlayers[i].Id}&championshipId={e.Id}");
@@ -209,7 +204,7 @@ namespace EUDBLD_HFT_2023241.Client
                 try
                 {
                     Championship current = (Championship)e;
-                    List<Player> participants = rest.Get<Player>($"Stat/GetTopPlayersFromChampionship?championshipId={current.Id}&numberOfPlayers={current.Attenders.Count()}");
+                    List<Player> participants = rest.Get<Player>($"Stat/GetTopPlayersFromChampionship?championshipId={current.Id}&numberOfPlayers={current.MaxAttender}");
                     for (int i = 0; i < participants.Count(); i++)
                     {
                         int place = rest.GetSingle<int>($"Stat/GetPlayersPlaceInChampionship?playerId={participants[i].Id}&championshipId={e.Id}");
@@ -284,7 +279,7 @@ namespace EUDBLD_HFT_2023241.Client
                     int place = rest.GetSingle<int>($"Stat/GetPlayersPlaceInChampionship?playerId={current.Id}&championshipId={item.Id}");
                     int prize = 0;
                     try { prize = rest.GetSingle<int>($"Stat/GetPlayersPrizeForChampionship?playerId={current.Id}&champshipId={item.Id}"); } catch {}
-                    Console.WriteLine($"{name}:\t {place}.Place ({prize} pounds)");
+                    Console.WriteLine($"{name}:\t\t\t\t\t {place}.Place ({prize} pounds)");
                 }
                 if(participatedChampionships.Count == 0)
                     Console.WriteLine("This player hasn't participate in any championship so far!");
@@ -367,9 +362,9 @@ namespace EUDBLD_HFT_2023241.Client
                     {
                         managedPlayerSubMenu.Add(item.Name, (thisMenu) =>
                         {
-                            //rest.Delete()
-                            
-                            //championshipLogic.DeletePlayerFromChampionship(item.Id, current.Id);
+                            // nem player id, hanem a PlayerChampionship ID -t kéne átadni
+                            int playerChampionshipId = rest.GetSingle<int>($"Stat/GetId?playerId={item.Id}&ChampionshipId={current.Id}");
+                            rest.Delete(playerChampionshipId, "PlayerChampionship");
                             thisMenu.CloseMenu();
                             Console.WriteLine("Player successfully removed from the championship!");
                         });
@@ -480,7 +475,7 @@ namespace EUDBLD_HFT_2023241.Client
                             {
                                 item.Place = GetIntFromUser("New Place: ");
                                 item.Price = GetIntFromUser("New Prize: ");
-                                rest.Put(item.Id, $"Prizes/{item.Id}");
+                                rest.Put(item, $"Prizes/{item.Id}");
                                 thisMenu.CloseMenu();
                                 Console.WriteLine("The Prize was successfully modified!");
                             });

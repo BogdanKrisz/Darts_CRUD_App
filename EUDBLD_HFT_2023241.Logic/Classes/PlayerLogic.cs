@@ -182,17 +182,23 @@ namespace EUDBLD_HFT_2023241.Logic
 
         // Returns the number of players given from a tournament in order starting with the 1st
         // Visszaadja a megadott számú játékost a tornán az elsőtől kezdve lefele
-        public IEnumerable<Player> GetTopPlayersFromChampionship(int championshipId, int numberOfPlayers)
+        public IEnumerable<Player> GetTopPlayersFromChampionship(int championshipId, int maxPlace)
         {
+            var championship = cRepo.Read(championshipId);
+
+            if (championship.Attenders.Count == 0)
+                throw new ArgumentException("This championship doesnt have any participants!");
+
             var result = plChRepo.ReadAll()
-                        .Where(t => t.ChampionshipId == championshipId && t.Place <= numberOfPlayers)
+                        .Where(t => t.ChampionshipId == championshipId && t.Place <= maxPlace)
                         .OrderBy(t => t.Place)
                         .Select(t => t.Player);
 
             if (result.Count() < 1)
-                throw new ArgumentException("This championship doesnt have any participants!");
+                throw new ArgumentException($"There is no player, who got better result than '{maxPlace}'.place");
+            
 
-            return result.Take(numberOfPlayers) ?? throw new ArgumentException("There is no Championship with this ID!");
+            return result;
         }
     }
 }
