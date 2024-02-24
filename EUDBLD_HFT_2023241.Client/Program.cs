@@ -362,8 +362,7 @@ namespace EUDBLD_HFT_2023241.Client
                     {
                         managedPlayerSubMenu.Add(item.Name, (thisMenu) =>
                         {
-                            int pcId = rest.GetSingle<int>($"Stat/GetId?playerId={item.Id}&ChampionshipId={current.Id}");
-                            rest.Delete(pcId, "PlayerChampionship");
+                            rest.Delete($"Stat/DeletePlayerFromChampionship?playerId={item.Id}&championshipId={current.Id}");
                             thisMenu.CloseMenu();
                             Console.WriteLine("Player successfully removed from the championship!");
                         });

@@ -130,6 +130,20 @@ namespace EUDBLD_HFT_2023241.Client
             response.EnsureSuccessStatusCode();
         }
 
+        public void Delete(string endpoint)
+        {
+            HttpResponseMessage response =
+                client.DeleteAsync(endpoint).GetAwaiter().GetResult();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = response.Content.ReadAsAsync<RestExceptionInfo>().GetAwaiter().GetResult();
+                throw new ArgumentException(error.Msg);
+            }
+
+            response.EnsureSuccessStatusCode();
+        }
+
         public void Put<T>(T item, string endpoint)
         {
             HttpResponseMessage response =

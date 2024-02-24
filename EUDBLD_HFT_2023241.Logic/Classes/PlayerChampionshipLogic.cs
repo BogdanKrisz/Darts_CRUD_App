@@ -57,7 +57,8 @@ namespace EUDBLD_HFT_2023241.Logic
 
         public void Update(PlayerChampionship item)
         {
-            var champship = item.Championship;
+            var champship = cRepo.ReadAll().FirstOrDefault(c => c.Id == item.ChampionshipId);
+
             if (champship == null)
                 throw new ArgumentException("This championship doesn't exist!");
 
@@ -86,7 +87,7 @@ namespace EUDBLD_HFT_2023241.Logic
         // determins if there is still an open spot on the given place in the given championship 
         bool ValidNewPlace(int championshipId, int place)
         {
-            int numOfPlayersOnGivenPlace = ReadAll().Select(pc => pc.ChampionshipId == championshipId && pc.Place == place).Count();
+            int numOfPlayersOnGivenPlace = ReadAll().Where(pc => pc.ChampionshipId == championshipId && pc.Place == place).Count();
             bool valid = false;
             // 1db 1., 1db 2, 2db 3., 4db 5., 8db 9., 16db 17., ...
             if (((place == 1 || place == 2) && numOfPlayersOnGivenPlace == 0) || (place > 2 && numOfPlayersOnGivenPlace < place - 1))

@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ABF08B65-BA9F-4F77-BFF8-7BE302A78B65}|EUDBLD_HFT_2023241.Client\\EUDBLD_HFT_2023241.Client.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABF08B65-BA9F-4F77-BFF8-7BE302A78B65}|EUDBLD_HFT_2023241.Client\\EUDBLD_HFT_2023241.Client.csproj|solutionrelative:eudbld_hft_2023241.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.logic\\classes\\playerlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|solutionrelative:eudbld_hft_2023241.logic\\classes\\playerlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.logic\\classes\\playerchampionshiplogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|solutionrelative:eudbld_hft_2023241.logic\\classes\\playerchampionshiplogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF08B65-BA9F-4F77-BFF8-7BE302A78B65}|EUDBLD_HFT_2023241.Client\\EUDBLD_HFT_2023241.Client.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.client\\restservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABF08B65-BA9F-4F77-BFF8-7BE302A78B65}|EUDBLD_HFT_2023241.Client\\EUDBLD_HFT_2023241.Client.csproj|solutionrelative:eudbld_hft_2023241.client\\restservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.logic\\classes\\championshiplogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99A2AEF2-299F-48C5-B93F-DBEE82466744}|EUDBLD_HFT_2023241.Logic\\EUDBLD_HFT_2023241.Logic.csproj|solutionrelative:eudbld_hft_2023241.logic\\classes\\championshiplogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{827CEE61-A3EE-49A0-8830-9EE0991A46CF}|EUDBLD_HFT_2023241.Endpoint\\EUDBLD_HFT_2023241.Endpoint.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.endpoint\\controllers\\statcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{827CEE61-A3EE-49A0-8830-9EE0991A46CF}|EUDBLD_HFT_2023241.Endpoint\\EUDBLD_HFT_2023241.Endpoint.csproj|solutionrelative:eudbld_hft_2023241.endpoint\\controllers\\statcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF08B65-BA9F-4F77-BFF8-7BE302A78B65}|EUDBLD_HFT_2023241.Client\\EUDBLD_HFT_2023241.Client.csproj|p:\\oe_orai\\halado fejlesztesi technikak\\eudbld_hft_2023241\\eudbld_hft_2023241.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABF08B65-BA9F-4F77-BFF8-7BE302A78B65}|EUDBLD_HFT_2023241.Client\\EUDBLD_HFT_2023241.Client.csproj|solutionrelative:eudbld_hft_2023241.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,37 +38,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PlayerChampionshipLogic.cs",
-              "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs",
-              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs",
-              "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs",
-              "RelativeToolTip": "EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs",
-              "ViewState": "AQIAAEUAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "RestService.cs",
+              "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Client\\RestService.cs",
+              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Client\\RestService.cs",
+              "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Client\\RestService.cs",
+              "RelativeToolTip": "EUDBLD_HFT_2023241.Client\\RestService.cs",
+              "ViewState": "AQIAAGIAAAAAAAAAAAAewH4AAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-24T03:29:56.63Z"
+              "WhenOpened": "2024-02-24T03:52:17.351Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PlayerLogic.cs",
-              "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PlayerLogic.cs",
-              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Logic\\Classes\\PlayerLogic.cs",
-              "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PlayerLogic.cs",
-              "RelativeToolTip": "EUDBLD_HFT_2023241.Logic\\Classes\\PlayerLogic.cs",
-              "ViewState": "AQIAAJMAAAAAAAAAAAAswFwAAAAYAAAA",
+              "DocumentIndex": 2,
+              "Title": "ChampionshipLogic.cs",
+              "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\ChampionshipLogic.cs",
+              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Logic\\Classes\\ChampionshipLogic.cs",
+              "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\ChampionshipLogic.cs",
+              "RelativeToolTip": "EUDBLD_HFT_2023241.Logic\\Classes\\ChampionshipLogic.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAewE4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-24T02:23:27.271Z"
+              "WhenOpened": "2024-02-24T03:39:15.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StatController.cs",
+              "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Endpoint\\Controllers\\StatController.cs",
+              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Endpoint\\Controllers\\StatController.cs",
+              "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Endpoint\\Controllers\\StatController.cs",
+              "RelativeToolTip": "EUDBLD_HFT_2023241.Endpoint\\Controllers\\StatController.cs",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAAAHYAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-24T03:39:07.789Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlayerChampionshipLogic.cs",
+              "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs",
+              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs",
+              "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs*",
+              "RelativeToolTip": "EUDBLD_HFT_2023241.Logic\\Classes\\PlayerChampionshipLogic.cs*",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAewF8AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-24T03:29:56.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Client\\Program.cs",
               "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Client\\Program.cs",
               "ToolTip": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Client\\Program.cs",
               "RelativeToolTip": "EUDBLD_HFT_2023241.Client\\Program.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAswFsAAAAVAAAA",
+              "ViewState": "AQIAAF0BAAAAAAAAAAAewGwBAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-01-11T09:22:35.819Z",
               "EditorCaption": ""
