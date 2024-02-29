@@ -1,4 +1,4 @@
-﻿using EUDBLD_HFT_2023241.Models;
+﻿using EUDBLD_HFT_2023242.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EUDBLD_HFT_2023241.Test
+namespace EUDBLD_HFT_2023242.Test
 {
     public abstract class MyTestClass
     {

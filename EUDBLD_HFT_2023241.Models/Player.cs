@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace EUDBLD_HFT_2023241.Models
+namespace EUDBLD_HFT_2023242.Models
 {
     [Table("players")]
     public class Player : Entity

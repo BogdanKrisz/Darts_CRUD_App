@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "EUDBLD_HFT_2023241.Endpoint": {
+    "EUDBLD_HFT_2023242.Endpoint": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

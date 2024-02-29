@@ -1,10 +1,10 @@
-﻿using EUDBLD_HFT_2023241.Logic.Interfaces;
-using EUDBLD_HFT_2023241.Models;
+﻿using EUDBLD_HFT_2023242.Logic.Interfaces;
+using EUDBLD_HFT_2023242.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EUDBLD_HFT_2023241.Logic
+namespace EUDBLD_HFT_2023242.Logic
 {
     public interface IPlayerLogic : ILogic<Player>
     {

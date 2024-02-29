@@ -1,5 +1,5 @@
 ﻿using ConsoleTools;
-using EUDBLD_HFT_2023241.Models;
+using EUDBLD_HFT_2023242.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Channels;
 
-namespace EUDBLD_HFT_2023241.Client
+namespace EUDBLD_HFT_2023242.Client
 {
     enum Navigate { Nowhere, Players, Prizes };
     public class Program

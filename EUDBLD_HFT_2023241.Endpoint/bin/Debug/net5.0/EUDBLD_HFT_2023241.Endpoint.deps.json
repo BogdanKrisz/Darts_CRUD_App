@@ -35,7 +35,6 @@
         "dependencies": {
           "EUDBLD_HFT_2023241.Logic": "1.0.0",
           "EUDBLD_HFT_2023241.Models": "1.0.0",
-          "EUDBLD_HFT_2023241.Repository": "1.0.0",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",

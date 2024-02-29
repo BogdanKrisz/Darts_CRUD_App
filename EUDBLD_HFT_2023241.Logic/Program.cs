@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EUDBLD_HFT_2023241.Logic
+namespace EUDBLD_HFT_2023242.Logic
 {
     internal class Program
     {

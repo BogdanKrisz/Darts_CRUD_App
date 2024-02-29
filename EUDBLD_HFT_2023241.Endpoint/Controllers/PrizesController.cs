@@ -1,11 +1,11 @@
-﻿using EUDBLD_HFT_2023241.Logic;
-using EUDBLD_HFT_2023241.Models;
+﻿using EUDBLD_HFT_2023242.Logic;
+using EUDBLD_HFT_2023242.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace EUDBLD_HFT_2023241.Endpoint.Controllers
+namespace EUDBLD_HFT_2023242.Endpoint.Controllers
 {
     [Route("[controller]")]
     [ApiController]

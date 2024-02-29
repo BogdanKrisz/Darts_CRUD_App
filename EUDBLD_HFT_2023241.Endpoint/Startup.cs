@@ -1,7 +1,7 @@
-using EUDBLD_HFT_2023241.Logic;
-using EUDBLD_HFT_2023241.Models;
-using EUDBLD_HFT_2023241.Repository;
-using EUDBLD_HFT_2023241.Repository.Data;
+using EUDBLD_HFT_2023242.Logic;
+using EUDBLD_HFT_2023242.Models;
+using EUDBLD_HFT_2023242.Repository;
+using EUDBLD_HFT_2023242.Repository.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -17,7 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EUDBLD_HFT_2023241.Endpoint
+namespace EUDBLD_HFT_2023242.Endpoint
 {
     public class Startup
     {
@@ -46,7 +46,7 @@ namespace EUDBLD_HFT_2023241.Endpoint
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "EUDBLD_HFT_2023241.Endpoint", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "EUDBLD_HFT_2023242.Endpoint", Version = "v1" });
             });
         }
 
@@ -57,7 +57,7 @@ namespace EUDBLD_HFT_2023241.Endpoint
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EUDBLD_HFT_2023241.Endpoint v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EUDBLD_HFT_2023242.Endpoint v1"));
             }
 
             app.UseExceptionHandler(c => c.Run(async context =>

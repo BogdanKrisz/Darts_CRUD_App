@@ -1,9 +1,9 @@
-﻿using EUDBLD_HFT_2023241.Logic;
-using EUDBLD_HFT_2023241.Models;
+﻿using EUDBLD_HFT_2023242.Logic;
+using EUDBLD_HFT_2023242.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace EUDBLD_HFT_2023241.Endpoint.Controllers
+namespace EUDBLD_HFT_2023242.Endpoint.Controllers
 {
     [Route("[controller]")]
     [ApiController]

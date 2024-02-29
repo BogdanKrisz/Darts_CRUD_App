@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EUDBLD_HFT_2023241.Client
+namespace EUDBLD_HFT_2023242.Client
 {
     class RestService
     {

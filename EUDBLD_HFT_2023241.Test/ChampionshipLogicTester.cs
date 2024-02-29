@@ -1,6 +1,6 @@
-﻿using EUDBLD_HFT_2023241.Logic;
-using EUDBLD_HFT_2023241.Models;
-using EUDBLD_HFT_2023241.Repository;
+﻿using EUDBLD_HFT_2023242.Logic;
+using EUDBLD_HFT_2023242.Models;
+using EUDBLD_HFT_2023242.Repository;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EUDBLD_HFT_2023241.Test
+namespace EUDBLD_HFT_2023242.Test
 {
     public class ChampionshipLogicTester : MyTestClass
     {
