@@ -9,7 +9,8 @@ using System.Threading.Channels;
 
 namespace EUDBLD_HFT_2023241.Client
 {
-    internal class Program
+    enum Navigate { Nowhere, Players, Prizes };
+    public class Program
     {
         static RestService rest;
 
@@ -129,7 +130,7 @@ namespace EUDBLD_HFT_2023241.Client
             }
         }
 
-        // if an entity gets selected do...
+        // if an entity gets selected, do...
         static void ItemSelected(Entity e)
         {
             if (e is Championship)
@@ -146,8 +147,8 @@ namespace EUDBLD_HFT_2023241.Client
                 .Add("TOP 4", () => ShowResult("Top4", e))
                 .Add("Results", () => ShowResult("Championship Results", e, title))
                 .Add("Update", (thisMenu) => { thisMenu.CloseMenu(); ShowResult("Championship Update", e, title); })
-                .Add("Manage Players", () => ShowResult("Manage Players", e, title))
-                .Add("Manage Prizes", () => ShowResult("Manage Prizes", e, title))
+                .Add("Manage Players", (thisMenu) => { thisMenu.CloseMenu(); ShowResult("Manage Players", e, title); })
+                .Add("Manage Prizes", (thisMenu) => { thisMenu.CloseMenu(); ShowResult("Manage Prizes", e, title); })
                 .Add("Delete", (thisMenu) => { thisMenu.CloseMenu(); RecordHandler("Delete Championship", e, title); })
                 .Add("Exit", ConsoleMenu.Close)
                 .Configure(config =>
@@ -193,6 +194,7 @@ namespace EUDBLD_HFT_2023241.Client
                         int place = rest.GetSingle<int>($"Stat/GetPlayersPlaceInChampionship?playerId={topPlayers[i].Id}&championshipId={e.Id}");
                         Console.WriteLine($"{place}.Place: {topPlayers[i].Name}");
                     }
+                    Console.ReadLine();
                 }
                 catch(Exception exc)
                 {
@@ -204,12 +206,13 @@ namespace EUDBLD_HFT_2023241.Client
                 try
                 {
                     Championship current = (Championship)e;
-                    List<Player> participants = rest.Get<Player>($"Stat/GetTopPlayersFromChampionship?championshipId={current.Id}&numberOfPlayers={current.Attenders.Count()}");
+                    List<Player> participants = rest.Get<Player>($"Stat/GetTopPlayersFromChampionship?championshipId={current.Id}&numberOfPlayers={current.MaxAttender}");
                     for (int i = 0; i < participants.Count(); i++)
                     {
                         int place = rest.GetSingle<int>($"Stat/GetPlayersPlaceInChampionship?playerId={participants[i].Id}&championshipId={e.Id}");
                         Console.WriteLine($"{place}.Place: {participants[i].Name}");
-                    }   
+                    }
+                    Console.ReadLine();
                 }
                 catch (Exception exc) 
                 {
@@ -235,9 +238,9 @@ namespace EUDBLD_HFT_2023241.Client
             if (function == "Manage Players")
             {
                 var playersManageSubMenu = new ConsoleMenu()
-                .Add("Add Player to the championship", () => RecordHandler("Add Player", e, title))
-                .Add("Update Player's place in the championship", () => RecordHandler("Update Player place", e, title))
-                .Add("Remove Player from the championship", () => RecordHandler("Remove Player", e, title))
+                .Add("Add Player to the championship", (thisMenu) => { thisMenu.CloseMenu(); RecordHandler("Add Player", e, title); })
+                .Add("Update Player's place in the championship", (thisMenu) => { thisMenu.CloseMenu(); RecordHandler("Update Player place", e, title); })
+                .Add("Remove Player from the championship", (thisMenu) => { thisMenu.CloseMenu(); RecordHandler("Remove Player", e, title); })
                 .Add("Exit", ConsoleMenu.Close)
                 .Configure(config =>
                 {
@@ -249,9 +252,9 @@ namespace EUDBLD_HFT_2023241.Client
             if (function == "Manage Prizes")
             {
                 var prizeManageSubMenu = new ConsoleMenu()
-                .Add("Add a prize to the championship", () => RecordHandler("Add Prize", e, title))
-                .Add("Update a prize in the championship", () => RecordHandler("Update Prize", e, title))
-                .Add("Remove a prize from the championship", () => RecordHandler("Delete Prize", e, title))
+                .Add("Add a prize to the championship", (thisMenu) => { thisMenu.CloseMenu(); RecordHandler("Add Prize", e, title); })
+                .Add("Update a prize in the championship", (thisMenu) => { thisMenu.CloseMenu(); RecordHandler("Update Prize", e, title); })
+                .Add("Remove a prize from the championship", (thisMenu) => { thisMenu.CloseMenu(); RecordHandler("Delete Prize", e, title); })
                 .Add("Exit", ConsoleMenu.Close)
                 .Configure(config =>
                 {
@@ -283,19 +286,18 @@ namespace EUDBLD_HFT_2023241.Client
                 }
                 if(participatedChampionships.Count == 0)
                     Console.WriteLine("This player hasn't participate in any championship so far!");
+                Console.ReadLine();
             }
-            Console.ReadLine();
-           
         }
 
-        static void RecordHandler(string entity, Entity e, string title = "")
+        static void RecordHandler(string function, Entity e, string title = "")
         {
             if (e is Championship)
             {
                 Championship current = (Championship)e;
 
-                // Championship CRUD
-                if (entity == "Add Player")
+                // Player inside Championship CRUD
+                if (function == "Add Player")
                 {
                     try
                     {
@@ -309,6 +311,7 @@ namespace EUDBLD_HFT_2023241.Client
                                 rest.Post(newPlayerChampionship, "PlayerChampionship");
                                 thisMenu.CloseMenu();
                                 Console.WriteLine("Player successfully added to the championship!");
+                                Console.ReadLine();
                             });
                         }
                         managedPlayerSubMenu.Add("Exit", ConsoleMenu.Close);
@@ -321,10 +324,12 @@ namespace EUDBLD_HFT_2023241.Client
                     }
                     catch (Exception exc)
                     {
+                        Console.Clear();
                         Console.WriteLine(exc.Message);
+                        Console.ReadLine();
                     }
                 }
-                if (entity == "Update Player place")
+                if (function == "Update Player place")
                 {
                     try
                     {
@@ -339,6 +344,7 @@ namespace EUDBLD_HFT_2023241.Client
                                 rest.Put(old, $"PlayerChampionship/{old.Id}");
                                 thisMenu.CloseMenu();
                                 Console.WriteLine("Player's palce was successfully modified!");
+                                Console.ReadLine();
                             });
                         }
                         managedPlayerSubMenu.Add("Exit", ConsoleMenu.Close);
@@ -353,102 +359,145 @@ namespace EUDBLD_HFT_2023241.Client
                     {
                         Console.Clear();
                         Console.WriteLine(exc.Message);
+                        Console.ReadLine();
                     }
                 }
-                if (entity == "Remove Player")
+                if (function == "Remove Player")
                 {
-                    var managedPlayerSubMenu = new ConsoleMenu();
-                    foreach (var item in current.Attenders)
+                    try
                     {
-                        managedPlayerSubMenu.Add(item.Name, (thisMenu) =>
+                        var managedPlayerSubMenu = new ConsoleMenu();
+                        foreach (var item in current.Attenders)
                         {
-                            rest.Delete($"Stat/DeletePlayerFromChampionship?playerId={item.Id}&championshipId={current.Id}");
-                            thisMenu.CloseMenu();
-                            Console.WriteLine("Player successfully removed from the championship!");
+                            managedPlayerSubMenu.Add(item.Name, (thisMenu) =>
+                            {
+                                rest.Delete($"Stat/DeletePlayerFromChampionship?playerId={item.Id}&championshipId={current.Id}");
+                                thisMenu.CloseMenu();
+                                Console.WriteLine("Player successfully removed from the championship!");
+                                Console.ReadLine();
+                            });
+                        }
+                        managedPlayerSubMenu.Add("Exit", ConsoleMenu.Close);
+                        managedPlayerSubMenu.Configure(config =>
+                        {
+                            config.Title = title;
+                            config.EnableWriteTitle = true;
                         });
+                        managedPlayerSubMenu.Show();
                     }
-                    managedPlayerSubMenu.Add("Exit", ConsoleMenu.Close);
-                    managedPlayerSubMenu.Configure(config =>
+                    catch (Exception exc)
                     {
-                        config.Title = title;
-                        config.EnableWriteTitle = true;
-                    });
-                    managedPlayerSubMenu.Show();
-                    
+                        Console.Clear();
+                        Console.WriteLine(exc.Message);
+                        Console.ReadLine();
+                    }
                 }
-                if (entity == "Update Championship Name")
+
+                // Championship Update / Delete
+                if (function == "Update Championship Name")
                 {
                     try
                     {
                         current.Name = GetStringFromUser("New name: ");
                         rest.Put(current, $"Championship/{current.Id}");
                         Console.WriteLine("Name of the championships has successfully changed!");
+                        Console.ReadLine();
+                        SelectableList("Championships");
                     }
                     catch(Exception exc)
                     {
+                        Console.Clear();
                         Console.WriteLine(exc.Message);
+                        Console.ReadLine();
                     }
                 }
-                if (entity == "Update Championship Size")
+                if (function == "Update Championship Size")
                 {
                     try
                     {
                         current.MaxAttender = GetIntFromUser("New Size: ");
                         rest.Put(current, $"Championship/{current.Id}");
                         Console.WriteLine("New size of the championships has successfully changed!");
+                        Console.ReadLine();
+                        SelectableList("Championships");
                     }
                     catch (Exception exc)
                     {
+                        Console.Clear();
                         Console.WriteLine(exc.Message);
+                        Console.ReadLine();
                     }
                 }
-                if (entity == "Update Championship Prize pool")
+                if (function == "Update Championship Prize pool")
                 {
                     try
                     {
                         current.PrizePool = GetIntFromUser("New Prize pool: ");
                         rest.Put(current, $"Championship/{current.Id}");
                         Console.WriteLine("Prize pool of the championships has successfully changed!");
+                        Console.ReadLine();
+                        SelectableList("Championships");
                     }
                     catch (Exception exc)
                     {
+                        Console.Clear();
                         Console.WriteLine(exc.Message);
+                        Console.ReadLine();
                     }
                 }
-                if (entity == "Update Championship Start Date")
+                if (function == "Update Championship Start Date")
                 {
                     try
                     {
                         current.StartDate = DateTime.Parse(GetStringFromUser("New Start Date: "));
                         rest.Put(current, $"Championship/{current.Id}");
                         Console.WriteLine("Start date of the championships has successfully changed!");
+                        Console.ReadLine();
+                        SelectableList("Championships");
                     }
                     catch (Exception exc)
                     {
+                        Console.Clear();
                         Console.WriteLine(exc.Message);
+                        Console.ReadLine();
                     }
                 }
-                if (entity == "Update Championship End Date")
+                if (function == "Update Championship End Date")
                 {
                     try
                     {
                         current.EndDate = DateTime.Parse(GetStringFromUser("New End Date: "));
                         rest.Put(current, $"Championship/{current.Id}");
                         Console.WriteLine("End date of the championships has successfully changed!");
+                        Console.ReadLine();
+                        SelectableList("Championships");
                     }
                     catch (Exception exc)
                     {
+                        Console.Clear();
                         Console.WriteLine(exc.Message);
+                        Console.ReadLine();
                     }
                 }
-                if (entity == "Delete Championship")
+                if (function == "Delete Championship")
                 {
-                    rest.Delete(e.Id, "Championship");
-                    Console.WriteLine("Championship deleted Successfully!");
+                    try
+                    {
+                        rest.Delete(e.Id, "Championship");
+                        Console.WriteLine("Championship deleted Successfully!");
+                        Console.ReadLine();
+                        SelectableList("Championships");
+                    }
+                    catch (Exception exc)
+                    {
+                        Console.Clear();
+                        Console.WriteLine(exc.Message);
+                        Console.ReadLine();
+                    }
                 }
                 
                 // Prize CRUD
-                if (entity == "Add Prize")
+                if (function == "Add Prize")
                 {
                     try
                     {
@@ -460,8 +509,9 @@ namespace EUDBLD_HFT_2023241.Client
                     {
                         Console.WriteLine(exc.Message);
                     }
+                    Console.ReadLine();
                 }
-                if (entity == "Update Prize")
+                if (function == "Update Prize")
                 {
                     try
                     {
@@ -476,6 +526,7 @@ namespace EUDBLD_HFT_2023241.Client
                                 rest.Put(item.Id, $"Prizes/{item.Id}");
                                 thisMenu.CloseMenu();
                                 Console.WriteLine("The Prize was successfully modified!");
+                                Console.ReadLine();
                             });
                         }
                         managedPrizeSubMenu.Add("Exit", ConsoleMenu.Close);
@@ -490,35 +541,46 @@ namespace EUDBLD_HFT_2023241.Client
                     {
                         Console.Clear();
                         Console.WriteLine(exc.Message);
+                        Console.ReadLine();
                     }
                 }
-                if (entity == "Delete Prize")
+                if (function == "Delete Prize")
                 {
-                    var managedPrizeSubMenu = new ConsoleMenu();
-                    var allPrizesInChampship = rest.Get<Prizes>($"Stat/GetAllPrizesInChampionship?championshipId={current.Id}");
-                    foreach (var item in allPrizesInChampship)
+                    try
                     {
-                        managedPrizeSubMenu.Add($"{item.Place}: {item.Price} pounds", (thisMenu) =>
+                        var managedPrizeSubMenu = new ConsoleMenu();
+                        var allPrizesInChampship = rest.Get<Prizes>($"Stat/GetAllPrizesInChampionship?championshipId={current.Id}");
+                        foreach (var item in allPrizesInChampship)
                         {
-                            rest.Delete(item.Id, "Prizes");
-                            thisMenu.CloseMenu();
-                            Console.WriteLine("Prize successfully removed from the championship!");
+                            managedPrizeSubMenu.Add($"{item.Place}: {item.Price} pounds", (thisMenu) =>
+                            {
+                                rest.Delete(item.Id, "Prizes");
+                                thisMenu.CloseMenu();
+                                Console.WriteLine("Prize successfully removed from the championship!");
+                                Console.ReadLine();
+                            });
+                        }
+                        managedPrizeSubMenu.Add("Exit", ConsoleMenu.Close);
+                        managedPrizeSubMenu.Configure(config =>
+                        {
+                            config.Title = title;
+                            config.EnableWriteTitle = true;
                         });
+                        managedPrizeSubMenu.Show();
                     }
-                    managedPrizeSubMenu.Add("Exit", ConsoleMenu.Close);
-                    managedPrizeSubMenu.Configure(config =>
+                    catch (Exception exc)
                     {
-                        config.Title = title;
-                        config.EnableWriteTitle = true;
-                    });
-                    managedPrizeSubMenu.Show();
+                        Console.Clear();
+                        Console.WriteLine(exc.Message);
+                        Console.ReadLine();
+                    }
                 }   
             }
             if (e is Player)
             {
                 Player current = (Player)e;
                 
-                if (entity == "Player Update")
+                if (function == "Player Update")
                 {
                     try
                     {
@@ -528,16 +590,26 @@ namespace EUDBLD_HFT_2023241.Client
                     }
                     catch (Exception exc)
                     {
+                        Console.Clear();
                         Console.WriteLine(exc.Message);
                     }
+                    Console.ReadLine();
                 }
-                if (entity == "Player Delete")
+                if (function == "Player Delete")
                 {
-                    rest.Delete(e.Id, "Player");
-                    Console.WriteLine("Player deleted Successfully!");
+                    try
+                    {
+                        rest.Delete(e.Id, "Player");
+                        Console.WriteLine("Player deleted Successfully!");
+                    }
+                    catch (Exception exc)
+                    {
+                        Console.Clear();
+                        Console.WriteLine(exc.Message);
+                    }
+                    Console.ReadLine();
                 }
             }
-            Console.ReadLine();
         }
         #endregion List  
 
@@ -574,7 +646,7 @@ namespace EUDBLD_HFT_2023241.Client
             baseMenu = new ConsoleMenu(args, level: 0)
                 .Add("Player", () => playerSubmenu.Show())
                 .Add("Championship", () => championshipSubmenu.Show())
-                .Add("Exit", () => Environment.Exit(0));
+                .Add("Exit program", () => Environment.Exit(0));
 
             baseMenu.Show();
         }
