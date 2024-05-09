@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023241.Repository.csproj": {}
+    "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023241.Repository.csproj": {}
   },
   "projects": {
-    "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj": {
+    "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj",
+        "projectUniqueName": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj",
         "projectName": "EUDBLD_HFT_2023241.Models",
-        "projectPath": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj",
+        "projectPath": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj",
         "packagesPath": "C:\\Users\\bogda\\.nuget\\packages\\",
-        "outputPath": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Models\\obj\\",
+        "outputPath": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -64,18 +64,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023241.Repository.csproj": {
+    "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023241.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023241.Repository.csproj",
+        "projectUniqueName": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023241.Repository.csproj",
         "projectName": "EUDBLD_HFT_2023241.Repository",
-        "projectPath": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023241.Repository.csproj",
+        "projectPath": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023241.Repository.csproj",
         "packagesPath": "C:\\Users\\bogda\\.nuget\\packages\\",
-        "outputPath": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Repository\\obj\\",
+        "outputPath": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -96,8 +96,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj": {
-                "projectPath": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj"
+              "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj": {
+                "projectPath": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj"
               }
             }
           }
@@ -152,7 +152,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

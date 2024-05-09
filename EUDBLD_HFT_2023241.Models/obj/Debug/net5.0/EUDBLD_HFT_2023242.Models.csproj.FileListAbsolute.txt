@@ -1,0 +1,12 @@
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\bin\Debug\net5.0\EUDBLD_HFT_2023242.Models.deps.json
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\bin\Debug\net5.0\EUDBLD_HFT_2023242.Models.dll
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\bin\Debug\net5.0\EUDBLD_HFT_2023242.Models.pdb
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\obj\Debug\net5.0\EUDBLD_HFT_2023242.Models.GeneratedMSBuildEditorConfig.editorconfig
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\obj\Debug\net5.0\EUDBLD_HFT_2023242.Models.AssemblyInfoInputs.cache
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\obj\Debug\net5.0\EUDBLD_HFT_2023242.Models.AssemblyInfo.cs
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\obj\Debug\net5.0\EUDBLD_HFT_2023242.Models.csproj.CoreCompileInputs.cache
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\obj\Debug\net5.0\EUDBLD_HFT_2023242.Models.sourcelink.json
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\obj\Debug\net5.0\EUDBLD_HFT_2023242.Models.dll
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\obj\Debug\net5.0\refint\EUDBLD_HFT_2023242.Models.dll
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\obj\Debug\net5.0\EUDBLD_HFT_2023242.Models.pdb
+P:\Projects\c#\EUDBLD_HFT_2023242\EUDBLD_HFT_2023241.Models\obj\Debug\net5.0\ref\EUDBLD_HFT_2023242.Models.dll

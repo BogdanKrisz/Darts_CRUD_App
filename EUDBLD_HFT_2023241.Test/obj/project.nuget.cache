@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JzmgoR5c1zwAk/Nu7wQlN4wtNojmiVZ6YsmySZLWidj/dZGrslDoVSFAjIVNlNGhBnEisUgeZ0Toj4ATYfwHvA==",
+  "dgSpecHash": "/9cvHTW2abAdPNl8xXGwngv+0F7w7+9o7vIGQafzn31Lv5rD85nCyNHHSQNbjsg4o2/MLyN3YkgqaLJQqVPIiA==",
   "success": true,
-  "projectFilePath": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Test\\EUDBLD_HFT_2023241.Test.csproj",
+  "projectFilePath": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Test\\EUDBLD_HFT_2023242.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bogda\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\bogda\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

@@ -1797,14 +1797,14 @@
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
       },
-      "EUDBLD_HFT_2023241.Models/1.0.0": {
+      "EUDBLD_HFT_2023242.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/EUDBLD_HFT_2023241.Models.dll": {}
+          "bin/placeholder/EUDBLD_HFT_2023242.Models.dll": {}
         },
         "runtime": {
-          "bin/placeholder/EUDBLD_HFT_2023241.Models.dll": {}
+          "bin/placeholder/EUDBLD_HFT_2023242.Models.dll": {}
         }
       }
     }
@@ -6005,15 +6005,15 @@
         "system.xml.xmldocument.nuspec"
       ]
     },
-    "EUDBLD_HFT_2023241.Models/1.0.0": {
+    "EUDBLD_HFT_2023242.Models/1.0.0": {
       "type": "project",
-      "path": "../EUDBLD_HFT_2023241.Models/EUDBLD_HFT_2023241.Models.csproj",
-      "msbuildProject": "../EUDBLD_HFT_2023241.Models/EUDBLD_HFT_2023241.Models.csproj"
+      "path": "../EUDBLD_HFT_2023241.Models/EUDBLD_HFT_2023242.Models.csproj",
+      "msbuildProject": "../EUDBLD_HFT_2023241.Models/EUDBLD_HFT_2023242.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "EUDBLD_HFT_2023241.Models >= 1.0.0",
+      "EUDBLD_HFT_2023242.Models >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.14",
       "Microsoft.EntityFrameworkCore.InMemory >= 5.0.14",
       "Microsoft.EntityFrameworkCore.Proxies >= 5.0.14",
@@ -6027,11 +6027,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023241.Repository.csproj",
-      "projectName": "EUDBLD_HFT_2023241.Repository",
-      "projectPath": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023241.Repository.csproj",
+      "projectUniqueName": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023242.Repository.csproj",
+      "projectName": "EUDBLD_HFT_2023242.Repository",
+      "projectPath": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Repository\\EUDBLD_HFT_2023242.Repository.csproj",
       "packagesPath": "C:\\Users\\bogda\\.nuget\\packages\\",
-      "outputPath": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Repository\\obj\\",
+      "outputPath": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6052,8 +6052,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj": {
-              "projectPath": "P:\\oe_orai\\halado fejlesztesi technikak\\EUDBLD_HFT_2023241\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023241.Models.csproj"
+            "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023242.Models.csproj": {
+              "projectPath": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Models\\EUDBLD_HFT_2023242.Models.csproj"
             }
           }
         }
@@ -6108,7 +6108,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
