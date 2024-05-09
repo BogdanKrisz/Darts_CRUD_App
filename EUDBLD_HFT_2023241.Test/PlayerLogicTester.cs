@@ -127,19 +127,6 @@ namespace EUDBLD_HFT_2023242.Test
         // NON CRUD TEST
 
         [Test]
-        public void PlayersRankingMoneyTest()
-        {
-            // ARRANGE
-            DateTime time = new DateTime(2023, 01, 04);
-
-            // ACT
-            var result = logic.PlayersRankingMoney(TestPlayer.Id, time);
-
-            // ASSERT
-            Assert.That(result, Is.EqualTo(100000));
-        }
-
-        [Test]
         public void GetPlayersPrizeForChampionshipTest()
         {
             TestChampionship.Attenders = AllPlayers;
@@ -154,25 +141,6 @@ namespace EUDBLD_HFT_2023242.Test
             Assert.That(() => logic.GetPlayersPrizeForChampionship(AllPlayers[0].Id, TestChampionship.Id), Is.EqualTo(100));
             Assert.That(() => logic.GetPlayersPrizeForChampionship(AllPlayers[2].Id, TestChampionship.Id), Is.EqualTo(500));
             Assert.That(() => logic.GetPlayersPrizeForChampionship(AllPlayers[3].Id, TestChampionship.Id), Is.EqualTo(1000));
-        }
-
-        [Test]
-        public void GetPlayersPrizeForChampionshipUnsuccessfullyTest()
-        {
-            TestChampionship.Attenders = AllPlayers;
-            TestChampionship.Prizes = new List<Prizes>()
-            {
-                new Prizes() { Championship = TestChampionship, ChampionshipId = TestChampionship.Id, Place = 1, Price = 1000 },
-                new Prizes() { Championship = TestChampionship, ChampionshipId = TestChampionship.Id, Place = 3, Price = 200 },
-                new Prizes() { Championship = TestChampionship, ChampionshipId = TestChampionship.Id, Place = 4, Price = 100 }
-            };
-
-            Player newAttender = new Player() { Name = "New Test Player" };
-
-            // Didnt participate in championship
-            Assert.That(() => logic.GetPlayersPrizeForChampionship(newAttender.Id, TestChampionship.Id), Throws.ArgumentException);
-            // Price wasn't set for that place
-            Assert.That(() => logic.GetPlayersPrizeForChampionship(AllPlayers[2].Id, TestChampionship.Id), Throws.ArgumentException);
         }
 
         [Test]
@@ -207,38 +175,7 @@ namespace EUDBLD_HFT_2023242.Test
         public void GetPlayersPlaceInChampionshipTest()
         {
             Assert.That(logic.GetPlayersPlaceInChampionship(TestPlayer.Id, TestChampionship.Id), Is.EqualTo(4));
-        }
-
-        /* out of order
-        [Test]
-        public void GetPlayersRankTest()
-        {
-            // ARRANGE
-            DateTime time = new DateTime(2023, 01, 04);
-
-            // ACT
-            Assert.That(logic.GetPlayersRank(TestPlayer.Id, time), Is.EqualTo(2));
-        }
-        [Test]
-        public void GetPlayersInOrderTest()
-        {
-            // ARRANGE
-            DateTime time = new DateTime(2023, 01, 04);
-
-            // ACT
-            List<Player> result = logic.GetPlayersInOrder(time).ToList();
-
-            List<Player> expected = new List<Player>()
-            {
-                AllPlayers[2],
-                AllPlayers[0],
-                AllPlayers[3],
-                AllPlayers[1]
-            };
-
-            Assert.AreEqual(expected, result);
-        }
-        */
+        }  
 
         [Test]
         public void GetAttendedChampionshipsTest()

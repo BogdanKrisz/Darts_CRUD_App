@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{87CA98CC-3195-4590-A62B-BE603CB7F108}|EUDBLD_HFT_2023241.Test\\EUDBLD_HFT_2023242.Test.csproj|p:\\projects\\c#\\eudbld_hft_2023242\\eudbld_hft_2023241.test\\playerlogictester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87CA98CC-3195-4590-A62B-BE603CB7F108}|EUDBLD_HFT_2023241.Test\\EUDBLD_HFT_2023242.Test.csproj|solutionrelative:eudbld_hft_2023241.test\\playerlogictester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlayerLogicTester.cs",
+              "DocumentMoniker": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Test\\PlayerLogicTester.cs",
+              "RelativeDocumentMoniker": "EUDBLD_HFT_2023241.Test\\PlayerLogicTester.cs",
+              "ToolTip": "P:\\Projects\\c#\\EUDBLD_HFT_2023242\\EUDBLD_HFT_2023241.Test\\PlayerLogicTester.cs",
+              "RelativeToolTip": "EUDBLD_HFT_2023241.Test\\PlayerLogicTester.cs",
+              "ViewState": "AQIAAIkAAAAAAAAAAAAewJoAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-09T14:45:59.194Z",
+              "EditorCaption": ""
             }
           ]
         }

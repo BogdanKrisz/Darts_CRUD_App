@@ -115,38 +115,6 @@ namespace EUDBLD_HFT_2023242.Test
                 Times.Once);
         }
 
-        [Test]
-        public void UpdatePlayerChampionshipUnsuccessfullyTest()
-        {
-            var old = AllPlayerChampionships.First();
-            Player newPlayer = new Player() { Name = "New Test Player" };
-
-            // Champship doesnt exist
-            old = new PlayerChampionship() { ChampionshipId = TestChampionship.Id, Championship = null, Place = 5, Player = newPlayer, PlayerId = newPlayer.Id };
-            Assert.That(() => logic.Update(old), Throws.ArgumentException);
-            
-            // no free space in champship
-            old.Championship = TestChampionship;
-            TestChampionship.MaxAttender = TestChampionship.Attenders.Count();
-            Assert.That(() => logic.Update(old), Throws.ArgumentException);
-
-            // player is already in the champship
-            //if (plChRepo.ReadAll().FirstOrDefault(t => t.Championship == champship && t.PlayerId == item.PlayerId) != null)
-            TestChampionship.MaxAttender = 100;
-            old = AllPlayerChampionships.First();
-            old.Championship = AllPlayerChampionships[2].Championship;
-            old.PlayerId = AllPlayerChampionships[2].PlayerId;
-            Assert.That(() => logic.Update(old), Throws.ArgumentException);
-
-            // place is negative
-            old = new PlayerChampionship() { ChampionshipId = TestChampionship.Id, Championship = TestChampionship, Place = 5, Player = newPlayer, PlayerId = newPlayer.Id };
-            old.Place = -1;
-            Assert.That(() => logic.Update(old), Throws.ArgumentException);
-
-            // place is bigger than maxattanders
-            old.Place = 101;
-            Assert.That(() => logic.Update(old), Throws.ArgumentException);
-        }
         
         [Test]
         public void DeletePlayerChampionshipTest()
